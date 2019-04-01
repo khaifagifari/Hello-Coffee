@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello Coffee</title>
+  <title>Login</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 <body class="bg1">
+
 
   <div class="container bg-transparent">
     <div class="row bg-transparent">
@@ -41,9 +42,10 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="login">Sign in</button>
               <!-- <a href="<?= base_url(); ?>Timeline" class="btn btn-lg btn-primary btn-block text-uppercase ">Sign in</a> -->
-
+              <p class="mt-4 text-center">belum punya akun?</p>
+              <a class="btn btn-lg btn-secondary btn-block text-uppercase" href="<?= base_url(); ?>Registration" type="submit" name="login">Registrasi</a>
             </form>
           </div>
         </div>
@@ -53,4 +55,4 @@
    
 
 </body>
-</html>
+</html> 

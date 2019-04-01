@@ -1,6 +1,6 @@
 <?php 
 
-if(isset($_POST['submit'])){
+if((isset($_POST['regist'])) || (isset($_POST['login']))){
 	$email = $_POST["email"];
 	if ($email != 'a') {
 		header('location: index.php');
@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 		<html lang="en">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<head>
-			<title>Hello Coffee</title>
+			<title>Haslo Coffee</title>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 									<a class="nav-link" href="#menu"  style="color: white;">Menu</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="#"  style="color: white;">Disabled</a>
+									<a class="nav-link" href="<?= base_url(); ?>home"  style="color: white;">logout</a>
 								</li>
 							</ul>
 						</div>
