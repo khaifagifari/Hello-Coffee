@@ -45,7 +45,7 @@
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="login">Sign in</button>
               <!-- <a href="<?= base_url(); ?>Timeline" class="btn btn-lg btn-primary btn-block text-uppercase ">Sign in</a> -->
               <p class="mt-4 text-center">belum punya akun?</p>
-              <a class="btn btn-lg btn-secondary btn-block text-uppercase" href="<?= base_url(); ?>Registration" type="submit" name="login">Registrasi</a>
+              <a class="btn btn-lg btn-danger btn-block text-uppercase" href="<?= base_url(); ?>Registration" type="submit" name="login">Registrasi</a>
             </form>
           </div>
         </div>
