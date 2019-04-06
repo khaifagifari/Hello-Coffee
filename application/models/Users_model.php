@@ -44,6 +44,10 @@ class Users_model extends CI_Model{
 		$this->db->where('password',$password);
 		return $this->db->get();
 	}
-}
 
- ?>
+	public function editUser($username,$data){
+		$this->db->where('username',$username);
+		return $this->db->update('user',$data);
+	}
+}
+?>

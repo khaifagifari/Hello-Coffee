@@ -23,6 +23,7 @@ class Registration extends CI_Controller{
 					//tambahin flash data "sudah ada username"
 				}else{
 					$this->Users_model->tambahUser();
+					$_SESSION['username'] = $this->input->post('email');
 					$this->load->view('home/table');
 				}
 			}
