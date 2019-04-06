@@ -31,7 +31,11 @@ class home extends CI_Controller {
 
 	public function hapus($username){
 		$this->Users_model->deleteUser($username);
-		$this->index();
+		// $this->load->view('templates/header');
+		 $message = "akun berhasil dihapus";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		redirect('home');
+		// $this->index();
 	}
 }
 ?>
