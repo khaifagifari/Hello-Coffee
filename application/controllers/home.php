@@ -14,6 +14,7 @@ class home extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() == FALSE)
         {
+        	$this->load->view('templates/header');
                 $this->load->view('home/index');
         }
 		else{
@@ -21,8 +22,10 @@ class home extends CI_Controller {
 				$row = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->num_rows();
 				if($row == 1){
 					$_SESSION['username'] = $this->input->post('email');
+					$this->load->view('templates/header');
 					$this->load->view('home/table');
 				}else{
+					$this->load->view('templates/header');
 					$this->load->view('home/index');
 				}
 			}
