@@ -5,7 +5,7 @@ class Registration extends CI_Controller{
 	public function __construct() {
 		parent:: __construct();
 		$this->load->library('form_validation');
-		$this->load->model('Registrasi_model');
+		$this->load->model('Users_model');
 	}
 
 	public function index(){
@@ -14,12 +14,20 @@ class Registration extends CI_Controller{
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
 
 		if ($this->form_validation->run() == FALSE) {
-			
+			$this->load->view('templates/header');
 			$this->load->view('home/registration');
 
 		} else {
-			$this->Registrasi_model->tambahUser();
-			redirect('Timeline/index');
+			if(($this->input->post('username')) and ($this->input->post('password')) and ($this->input->post('email'))){
+				$row = $this->Users_model->cariUser($this->input->post('username'))->num_rows();
+				if($row == 1){
+					//tambahin flash data "sudah ada username"
+				}else{
+					$this->Users_model->tambahUser();
+					$this->load->view('templates/header');
+					$this->load->view('home/table');
+				}
+			}
 		}
 	}
 }
