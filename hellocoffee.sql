@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
@@ -6,6 +7,15 @@
 -- Waktu pembuatan: 06 Apr 2019 pada 12.35
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
+
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 02, 2019 at 06:10 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +35,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+
 -- Struktur dari tabel `daftar_toko`
 --
 
@@ -103,10 +114,24 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gender`, `id_to
 (5, 'toko', 'toko', 'toko@gmail.com', 'L', 1);
 
 --
+
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `gender` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+
 -- Indexes for dumped tables
 --
 
 --
+
 -- Indeks untuk tabel `daftar_toko`
 --
 ALTER TABLE `daftar_toko`
@@ -176,6 +201,12 @@ ALTER TABLE `komentar`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `id_toko` FOREIGN KEY (`id_toko`) REFERENCES `daftar_toko` (`id_toko`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

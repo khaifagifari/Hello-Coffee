@@ -12,6 +12,7 @@ class home extends CI_Controller {
 	}
 
 	public function index(){
+
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() == FALSE)
@@ -103,6 +104,13 @@ class home extends CI_Controller {
 	public function getMenuToko($id){
 		$data_menu = $this->M_web->getMenuToko($id);
 		$this->load->view('home/table',['data'=>$data_menu]);
+
+		$this->load->model('Registrasi_model');
+		$data['user'] = $this->Registrasi_model->getAllUser();
+		// $this->load->view('templates/header');
+		$this->load->view('home/product', $data);
+		// $this->load->view('templates/footer');
+
 	}
 
 	public function editMenu($id){
