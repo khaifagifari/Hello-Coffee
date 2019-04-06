@@ -24,6 +24,15 @@
 
 				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 					<ul class="navbar-nav ml-auto pr-5 mt-2 mt-lg-0 text-uppercase">
+						<?php 
+							$username = $_SESSION['username'];
+						?>
+						<li class="nav-item ">
+							<a class="nav-link" style="color: white;" ><?php echo $username ?></a>
+						</li>
+						<li class="nav-item ">
+							<a class="nav-link" href="<?= base_url(); ?>home/hapus/<?= $username ?>" style="color: white;" onclick="return confirm('Apakah anda yakin menghapus akun ini?');" >Hapus Akun</a>
+						</li>
 						<li class="nav-item ">
 							<a class="nav-link" href="#te" style="color: white;" >Home</a>
 						</li>
