@@ -6,8 +6,10 @@ class home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Users_model');
+
 		$this->load->model('komentar_model');
 		$this->load->model('menu_model');
+
 		$this->load->library('form_validation');
 	}
 
@@ -24,10 +26,14 @@ class home extends CI_Controller {
 			if (($this->input->post('email')) and ($this->input->post('password'))){
 				$row = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->num_rows();
 				if($row == 1){
+
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['id_user'] = $data[0]['id_user'];
 					//$_SESSION['id_toko'] = $data[0]['id_toko']; untuk toko nanti
+
+					$_SESSION['username'] = $this->input->post('email');
+
 					$this->load->view('templates/header');
 					$this->load->view('home/table');
 				}else{
@@ -40,6 +46,7 @@ class home extends CI_Controller {
 
 	public function hapus($username){
 		$this->Users_model->deleteUser($username);
+
 		// $this->load->view('templates/header');
 		 $message = "akun berhasil dihapus";
 		echo "<script type='text/javascript'>alert('$message');</script>";
@@ -128,5 +135,13 @@ class home extends CI_Controller {
 		$this->komentar_model->deleteMenu($id);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
 	}
+
+		// $this->load->view('templates/header');
+		 $message = "akun berhasil dihapus";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		redirect('home');
+		// $this->index();
+	}
+
 }
 ?>

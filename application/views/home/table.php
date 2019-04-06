@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -14,6 +15,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
+
 
 <body class="mt-5">
 	<header>
@@ -72,6 +74,7 @@
 							<div class="image-holder">	<a href="#" class="image-holder__link"></a>
 								<div class="image-liquid image-holder--original"
 								style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
+
 							</div>
 							<div class="product-description">
 								<!-- title -->
@@ -102,8 +105,22 @@
 									<h5 class="card-title">Kopi Tungkooo</h5>
 
 
+							</div>
+							<div class="product-description">
+								<!-- title -->
+								<div class="card-body pt-2">
+									<h5 class="card-title mb-3">Nama kopi</h5>
+									<p class="card-text">id kopi.</p>
+									<p class="card-text">jenis kopi.</p>
+								</div>
+								<a href="#" class="btn btn-primary float-right ">Detail</a>
+								<h5 class="float-left m-2">Rp.(harga),-</h5>
+
+
 								</div>
 							</div>
+
+
 
 						</article>
 					</div><div class="col-12 col-md-6 col-lg-4">
@@ -122,12 +139,14 @@
 								<a href="#" class="btn btn-primary float-right ">Detail</a>
 								<h5 class="float-left m-2">Rp.(harga),-</h5>
 
+
 						</div>
 						<div class="col-md-3">
 							<div class="card">
 								<img class="card-img-top" src="https://images.unsplash.com/photo-1489866492941-15d60bdaa7e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Card image cap">
 								<div class="card-body">
 									<h5 class="card-title">Kopi aing</h5>
+
 
 
 								</div>
@@ -176,6 +195,7 @@
 								<a href="#" class="btn btn-primary float-right ">Detail</a>
 								<h5 class="float-left m-2">Rp.(harga),-</h5>
 
+
 							</div>
 						</article>
 					</div><div class="col-12 col-md-6 col-lg-4">
@@ -202,6 +222,34 @@
 								<div class="image-liquid image-holder--original"
 								style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
 							</div>
+
+							</div>
+						</article>
+					</div><div class="col-12 col-md-6 col-lg-4">
+						<article class="card-wrapper text-dark text-center">
+							<div class="image-holder">	<a href="#" class="image-holder__link"></a>
+								<div class="image-liquid image-holder--original"
+								style="background-image: url('https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
+							</div>
+							<div class="product-description">
+								<!-- title -->
+								<div class="card-body pt-2">
+									<h5 class="card-title mb-3">Nama kopi</h5>
+									<p class="card-text">id kopi.</p>
+									<p class="card-text">jenis kopi.</p>
+								</div>
+								<a href="#" class="btn btn-primary float-right ">Detail</a>
+								<h5 class="float-left m-2">Rp.(harga),-</h5>
+
+							</div>
+						</article>
+					</div><div class="col-12 col-md-6 col-lg-4">
+						<article class="card-wrapper text-dark text-center">
+							<div class="image-holder">	<a href="#" class="image-holder__link"></a>
+								<div class="image-liquid image-holder--original"
+								style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
+							</div>
+
 							<div class="product-description">
 								<!-- title -->
 								<div class="card-body pt-2">
@@ -238,6 +286,7 @@
 						<div class="carousel-caption">
 							<h3>taste.</h3>
 							<p>Feel the best taste of coffee here!</p>
+
 						</div>
 					</div>
 					<div class="carousel-item">
@@ -248,12 +297,25 @@
 						</div>
 					</div>
 					<div class="carousel-item">
+
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img class="d-block w-100" src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+						<div class="carousel-caption">
+							<h3>Variant</h3>
+							<p>All your favourite coffee ready to be yours</p>
+						</div>
+					</div>
+					<div class="carousel-item">
+
 						<img class="d-block w-100" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Third slide">
 						<div class="carousel-caption">
 							<h3>IPOK METIIIII</h3>
 							<p>Thank you!</p>
 						</div>
 					</div>
+
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -267,8 +329,19 @@
 
 						</div> 
 					</div>
+
+
 				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 			</div>
+
 		</div>
 	</section>
 
@@ -279,6 +352,23 @@
 			<p>&copy; Hello coffee. All rights reserved.</p>
 		</div>
 	</footer>
+
+		</section>
+
+		<!-- end of carousek -->
+		<footer class="footer">
+			<div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+			<div class="h4 title text-center">Hello Coffee</div>
+			<div class="text-center text-muted">
+				<p>&copy; Hello coffee. All rights reserved.</p>
+			</div>
+		</footer>
+
+	</body>
+
+
+
+
 
 		</section>
 
