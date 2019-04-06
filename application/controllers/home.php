@@ -55,7 +55,7 @@ class home extends CI_Controller {
 		$data = [
 			"komentar" => $this->input->post('komentar'),
 			"bintang" => $this->input->post('bintang'),
-			"id_user" => $_SESSION['id_user'];
+			"id_user" => $_SESSION['id_user'],
 		];
 		$this->komentar_model->tambahKomentar($data);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
@@ -69,7 +69,7 @@ class home extends CI_Controller {
 		$data = [
 			"komentar" => $this->input->post('komentar'),
 			"bintang" => $this->input->post('bintang'),
-			"id_user" => $_SESSION['id_user'];
+			"id_user" => $_SESSION['id_user'],
 		];
 		$this->komentar_model->editKomentar($id,$data);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
