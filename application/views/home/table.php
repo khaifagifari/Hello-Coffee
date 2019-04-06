@@ -186,7 +186,7 @@
 						<img class="d-block w-100" src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
 						<div class="carousel-caption">
 							<h3>Variant</h3>
-							<p>All your favourite coffee ready to yours</p>
+							<p>All your favourite coffee ready to be yours</p>
 						</div>
 					</div>
 					<div class="carousel-item">

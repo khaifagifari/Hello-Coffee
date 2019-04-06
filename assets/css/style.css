@@ -267,78 +267,7 @@ hr {
     height: 65px;
   }
 }
-.product-description p {
-  margin: 0 0 5px;
-}
-.product-description .product-description__title {
-  font-family: 'Raleway', sans-serif;
-  position: relative;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0;
-  font-size: 18px;
-  line-height: 1.25;
-}
-.product-description .product-description__title:after {
-  content: '';
-  width: 60px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), #fafafa);
-}
-.product-description .product-description__title a {
-  text-decoration: none;
-  color: inherit;
-}
-.product-description .product-description__category {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.product-description .product-description__price {
-  color: #4CAF50;
-  text-align: left;
-  font-weight: bold;
-  letter-spacing: 0.06em;
-}
-@media (min-width: 768px) {
-  .product-description .product-description__price {
-    text-align: right;
-  }
-}
-.product-description .sizes-wrapper {
-  margin-bottom: 15px;
-}
-.product-description .color-list {
-  font-size: 0;
-}
-.product-description .color-list__item {
-  width: 25px;
-  height: 10px;
-  position: relative;
-  z-index: 1;
-  transition: all .2s;
-}
-.product-description .color-list__item:hover {
-  width: 40px;
-}
-.product-description .color-list__item--red {
-  background-color: #F44336;
-}
-.product-description .color-list__item--blue {
-  background-color: #448AFF;
-}
-.product-description .color-list__item--green {
-  background-color: #CDDC39;
-}
-.product-description .color-list__item--orange {
-  background-color: #FF9800;
-}
-.product-description .color-list__item--purple {
-  background-color: #673AB7;
-}
+
 /*end card product*/
 
 /* carousel caption */
