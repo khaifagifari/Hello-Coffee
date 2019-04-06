@@ -55,7 +55,7 @@
 	<div class="jumbotron text-white" style="background-image: url('https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1791&q=80'); height: 700px; width: 100%">
 		<div class="container">
 			<h1>Hello Coffee</h1>      
-			<p>Best ssss	coffee in ur area.</p>
+			<p>Best coffee in ur area.</p>
 		</div>
 	</div>
 
