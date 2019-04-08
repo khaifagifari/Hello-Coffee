@@ -29,7 +29,7 @@ class home extends CI_Controller {
 
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
 					$_SESSION['username'] = $data[0]['username'];
-					$_SESSION['id_user'] = $data[0]['id_user'];
+					// $_SESSION['id_user'] = $data[0]['id_user'];
 					//$_SESSION['id_toko'] = $data[0]['id_toko']; untuk toko nanti
 
 					$_SESSION['username'] = $this->input->post('email');
@@ -134,7 +134,7 @@ class home extends CI_Controller {
 	public function deleteMenu($id){
 		$this->komentar_model->deleteMenu($id);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
-	}
+	
 
 		// $this->load->view('templates/header');
 		 $message = "akun berhasil dihapus";
