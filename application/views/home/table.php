@@ -89,7 +89,7 @@
 
 			<div class="col-12 col-md-6 col-lg-4">
 				<article class="card-wrapper text-dark text-center">
-					<div class="image-holder">	<a href="#" class="image-holder__link"></a>
+					<div class="image-holder">	<a href="" class="image-holder__link"></a>
 						<div class="image-liquid image-holder--original"
 						style="background-image: url('https://images.unsplash.com/photo-1522012188892-24beb302783d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
 					</div>
@@ -100,7 +100,7 @@
 							<p class="card-text">id kopi.</p>
 							<p class="card-text">jenis kopi.</p>
 						</div>
-						<a href="#" class="btn btn-primary float-right ">Detail</a>
+						<a href="<?php echo base_url('Detail_produk/') ?>" class="btn btn-primary float-right ">Detail</a>
 						<h5 class="float-left m-2">Rp.(harga),-</h5>
 
 

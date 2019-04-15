@@ -15,9 +15,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="shortcut icon" href="<?php echo base_url('assets/kopi.jpg') ?>">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
@@ -39,6 +38,7 @@
                      <li><a href="#menu">Menu</a></li>
                      <li><a href="#">Blog</a></li>
                      <li><a href="<?php echo base_url('Team/') ?>">About Us</a></li>
+                     <li><a href="#">Keranjang</a></li>
                      <li><a href="#">Logout</a></li>
                   </ul>
                </div>
