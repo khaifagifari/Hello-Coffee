@@ -1,44 +1,34 @@
 
 
-<body class="mt-5">
+<body class="">
 
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top pl-5" style="background-color: black;">
-			<a class="navbar-brand" href="#">Hello Coffee</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-				<ul class="navbar-nav ml-auto pr-5 mt-2 mt-lg-0 text-uppercase">
-					<?php 
-					$username = $_SESSION['username'];
-					?>
-					<li class="nav-item ">
-						<a class="nav-link" style="color: white;" ><?php echo $username ?></a>
-					</li>
-					<li class="nav-item ">
-						<a class="nav-link" href="<?= base_url(); ?>home/hapus/<?= $username ?>" style="color: white;" onclick="return confirm('Apakah anda yakin menghapus akun ini?');" >Hapus Akun</a>
-					</li>
-					<li class="nav-item ">
-						<a class="nav-link" href="#te" style="color: white;" >Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#menu"  style="color: white;">Menu</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url(); ?>home"  style="color: white;">logout</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-	</div>
+	<div class="wrapper sticky-top">
+         <header>
+            <nav>
+               <div class="menu-icon">
+                  <i class="fa fa-bars fa-2x"></i>
+               </div>
+               <div class="logo">
+                  HELLOCOFFEE
+               </div>
+               <div class="menu text-uppercase">
+                  <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">Menu</a></li>
+                     <li><a href="#">Blog</a></li>
+                     <li><a href="#">About Us</a></li>
+                     <li><a href="#">Logout</a></li>
+                  </ul>
+               </div>
+            </nav>
+         </header>
+      </div>
 	
 
-	<div class="jumbotron text-white" style="background-image: url('https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1791&q=80'); height: 700px; width: 100%">
+	<div class="jumbotron text-white rounded-0" style="background-image: url('https://cdn.pixabay.com/photo/2015/07/29/00/10/girl-865304_1280.jpg'); height: 600px; width: 100%">
 		<div class="container">
-			<h1>Hello Coffee</h1>      
-			<p>Best coffee iaaan ur area.</p>
+			<h1 class="mt-5">Hello Coffee</h1>      
+			<p>Best coffee in ur area.</p>
 		</div>
 	</div>
 
@@ -243,7 +233,23 @@
 		</div>
 	</footer>
 
+<script> $(document).ready(function() {
+            $(".menu-icon").on("click", function() {
+                  $("nav ul").toggleClass("showing");
+            });
+      });
 
+      // Scrolling Effect
+
+      $(window).on("scroll", function() {
+            if($(window).scrollTop()) {
+                  $('nav').addClass('black');
+            }
+
+            else {
+                  $('nav').removeClass('black');
+            }
+      })</script>
 
 </body>
 
