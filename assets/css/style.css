@@ -716,6 +716,7 @@ hr {
 .gallery-wrap .img-big-wrap img {
   display: inline-block;
   background-repeat: no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (min-width: 575px) {
@@ -723,13 +724,14 @@ hr {
     object-fit: cover;
     height: 100%;
     background-repeat: no-repeat;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-} #detail {
-           height: 1500px;}
+  } #detail {
+   height: 1500px;}
 
 
 
 
-/*end detail produk*/
+   /*end detail produk*/
 
 /*table*/
