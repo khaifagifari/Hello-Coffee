@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Judul menyesuaikan</title>
+  <title>Hello Coffee - The 1st Online Coffee Shop</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="shortcut icon" href="<?php echo base_url('assets/kopi.jpg') ?>">
+  <link rel="shortcut icon" href="<?php echo base_url('assets/img/coffee9.jpg') ?>">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,8 +36,6 @@
                   <ul>
                      <li><a href="<?php echo base_url('Timeline/') ?>">Home</a></li>
                      <li><a href="#menu">Menu</a></li>
-                     <li><a href="#">Blog</a></li>
-                     <li><a href="<?php echo base_url('Team/') ?>">About Us</a></li>
                      <li><a href="#">Keranjang</a></li>
                      <li><a href="#">Logout</a></li>
                   </ul>

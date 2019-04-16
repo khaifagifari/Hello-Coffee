@@ -1,9 +1,55 @@
 <footer class="footer">
-	<div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-	<div class="h4 title text-center">Hello Coffee</div>
-	<div class="text-center text-muted">
-		<p>&copy; Hello coffee. All rights reserved.</p>
-	</div>
+      <table width="100%" >  
+            <th></th>
+            <th> 
+            <a href="<?php echo base_url('About/') ?>">About</a><br>
+            <a href="<?php echo base_url('Team/') ?>">Our Team</a><br>
+            <a href="<?php echo base_url('FAQ/') ?>">FAQ</a>
+            </th>
+            <th>  
+                  <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+                  <div class="h4 title text-center">Hello Coffee</div>
+                  <div class="text-center text-muted">
+                  <p>&copy; Hello coffee. All rights reserved.</p>
+                  </div>
+            </th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+      </table>
 </footer>
 
 <!-- Optional JavaScript -->
