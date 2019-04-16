@@ -1,3 +1,4 @@
+
 <div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.wallpaperscraft.com/image/coffee_book_windowsill_130911_1920x1080.jpg'); height: 650px; width: 100%;">
 	<div class="container">
 		<h1 class="mt-5 pt-5">Hello Coffee</h1>      
@@ -18,7 +19,9 @@
 
 				<div class="col-12 col-md-6 col-lg-4">
 					<article class="card-wrapper text-dark text-center">
+
 						<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+
 							<div class="image-liquid image-holder--original"
 							style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')">
 						</div>
@@ -50,6 +53,7 @@
 							<p class="card-text">jenis kopi.</p>
 						</div>
 						<a href="<?php echo base_url('Detail_produk2/') ?>" class="btn btn-primary float-right ">Detail</a>
+
 						<h5 class="float-left m-2">Rp.(harga),-</h5>
 
 					</div>
@@ -61,6 +65,7 @@
 
 			<div class="col-12 col-md-6 col-lg-4">
 				<article class="card-wrapper text-dark text-center">
+
 					<div class="image-holder">	<a href="<?php echo base_url('Detail_produk3/') ?>" class="image-holder__link"></a>
 						<div class="image-liquid image-holder--original"
 						style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
@@ -72,7 +77,9 @@
 							<p class="card-text">id kopi.</p>
 							<p class="card-text">jenis kopi.</p>
 						</div>
+
 						<a href="<?php echo base_url('Detail_produk3/') ?>" class="btn btn-primary float-right ">Detail</a>
+
 						<h5 class="float-left m-2">Rp.(harga),-</h5>
 
 					</div>
@@ -85,6 +92,7 @@
 			<div class="col-12 col-md-6 col-lg-4">
 				<article class="card-wrapper text-dark text-center">
 					<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+
 						<div class="image-liquid image-holder--original"
 						style="background-image: url('https://images.unsplash.com/photo-1522012188892-24beb302783d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80')"></div>
 					</div>

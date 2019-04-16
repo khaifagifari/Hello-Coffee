@@ -5,16 +5,16 @@ height: 100%;">
 		<br> 
 		<br> 
 		<br> 
-		
-		
-
 
 		<div class="card text-dark mb-5">
 			<div class="row">
 				<aside class="col-sm-6 " style="padding: 30px 40px 30px 40px">
 					<article class="gallery-wrap"> 
 						<div class="img-big-wrap">
+
 							<div> <a href="#"><img src="<?php echo base_url('assets/img/coffee2.jpg') ?>"></a></div>
+
+							
 						</div> <!-- slider-product.// -->
 					</article> <!-- gallery-wrap .end// -->
 				</aside>
