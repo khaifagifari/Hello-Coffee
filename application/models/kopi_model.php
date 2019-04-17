@@ -6,6 +6,11 @@ class kopi_model extends CI_Model{
 		$query = $this->db->get('kopi');
 		return $query->result_array();
 	}
+	public function getKopiById($id_kopi){
+		$query = $this->db->query("SELECT * FROM kopi WHERE id_kopi='$id_kopi'");
+        return $query->result_array();
+        //return as object array
+	}
 
 	public function getMenuToko($id){
 		$this->db->from('menu');

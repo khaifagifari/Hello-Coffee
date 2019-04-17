@@ -20,25 +20,32 @@
 				
 				<?php foreach ($coffee as $kopi) : ?>
 					<div class="col-12 col-md-6 col-lg-4">
-						<article class="card-wrapper text-dark text-center">
+						<form method="post" action="" method="post" accept-charset="utf-8">
+							<article class="card-wrapper text-dark text-center">
 
-							<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+								<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
 
-								<div class="image-liquid image-holder--original"
-								style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+									<div class="image-liquid image-holder--original"
+									style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+								</div>
 							</div>
-						</div>
-						<div class="product-description">
-							<!-- title -->
-							<div class="card-body pt-2">
-								<h5 class="card-title mb-3"><?php echo $kopi['nama_kopi'] ?></h5>
-								<p class="card-text"><?php echo $kopi['id_kopi'] ?></p>
-								<p class="card-text"><?php echo $kopi['jenis'] ?></p>
+							<div class="product-description">
+								<!-- title -->
+								<div class="card-body pt-2 pb-2">
+									<h5 class="card-title mb-3"><?php echo $kopi['nama_kopi'] ?></h5>
+									<hr class="mb-2 mt-0">
+									<p class="card-text">Id = <?php echo $kopi['id_kopi'] ?></p>
+									<p class="card-text"><?php echo $kopi['jenis'] ?></p>
+								</div>
+								<a href="<?php echo base_url('') ?>Detail_produk/detail/<?php echo $kopi['id_kopi']; ?>" class="btn btn-primary float-right ">Detail</a>
+								
+								<input type="hidden" name="id_kopi" value="<?php echo $kopi['id_kopi']; ?>" />
+								<input type="hidden" name="nama_kopi" value="<?php echo $kopi['nama_kopi']; ?>" />
+								<input type="hidden" name="harga" value="<?php echo $kopi['harga']; ?>" />
+								<input type="hidden" name="jenis" value="<?php echo $kopi['jenis']; ?>" />
 							</div>
-							<a href="<?php echo base_url('Detail_produk/') ?>" class="btn btn-primary float-right ">Detail</a>
-
-						</div>
-					</article>
+						</article>
+					</form>
 				</div>
 
 			<?php endforeach; ?>
