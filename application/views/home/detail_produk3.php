@@ -5,10 +5,6 @@ height: 100%;">
 		<br> 
 		<br> 
 		<br> 
-		
-		
-
-
 		<div class="card text-dark mb-5">
 			<div class="row">
 				<aside class="col-sm-6 " style="padding: 30px 40px 30px 40px">

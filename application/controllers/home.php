@@ -9,6 +9,7 @@ class home extends CI_Controller {
 
 		$this->load->model('komentar_model');
 		$this->load->model('menu_model');
+		$this->load->model('kopi_model');
 
 		$this->load->library('form_validation');
 	}
@@ -32,9 +33,10 @@ class home extends CI_Controller {
 					//$_SESSION['id_toko'] = $data[0]['id_toko']; untuk toko nanti
 
 					$_SESSION['username'] = $this->input->post('email');
+					$data['coffee'] = $this->kopi_model->getKopi();
 
 					$this->load->view('templates/header');
-					$this->load->view('home/table');
+					$this->load->view('home/table',$data);
 					$this->load->view('templates/footer');
 				}else{
 					$this->load->view('home/index');
@@ -140,6 +142,11 @@ class home extends CI_Controller {
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		redirect('home');
 		// $this->index();
+	}
+
+	public function getKopi(){
+		$data['kopi'] = $this->kopi_model->getKopi();
+		$this->load->view('home/table', $data);
 	}
 
 }
