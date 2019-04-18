@@ -24,8 +24,11 @@ class Registration extends CI_Controller{
 					//tambahin flash data "sudah ada username"
 				}else{
 					$this->Users_model->tambahUser();
+					$this->load->model('kopi_model');
+					$data['coffee'] = $this->kopi_model->getKopi();
 					$this->load->view('templates/header');
-					$this->load->view('home/table');
+					$this->load->view('home/table',$data);
+					$this->load->view('templates/footer');
 				}
 			}
 		}
