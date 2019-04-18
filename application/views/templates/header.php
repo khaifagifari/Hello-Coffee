@@ -38,6 +38,7 @@
                      <li><a href="#menu">Menu</a></li>
                      <li><a href="#">Keranjang</a></li>
                      <li><a href="#">Logout</a></li>
+                     <li><a href="<?php echo base_url('Akun/') ?>">akun</a></li>
                   </ul>
                </div>
             </nav>
