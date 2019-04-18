@@ -74,10 +74,14 @@
                             </div>
                             
                         </div>
+                        <hr>    
+                        <a href="" class="btn btn-primary float-right  ">Edit Akun</a>
+
+                    <button class='btn btn btn-danger float-right mr-3' onClick="return confirm('Apakah Anda Yakin?')">Delete Akun</button>
                     </div>
                 </div>
             </div>
-
+    
         </form>           
     </div>
 </section>
