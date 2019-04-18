@@ -98,6 +98,43 @@
 
 </section>
 
+<section id="testimonial" class="our-webcoderskull padding-lg" style="background: none;">
+	<div class="container">
+			<h2 class="mb-5" style="color: black;">Testimonials</h2>
+		<ul class="row">
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1 "><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0" style="text-transform: none; font-size: 18px;" >Gak nyesel gue beli kopi disini, gue gaperlu jauh-jauh ke toko karena semuanya ada disni.</h3>
+					<h3 class="mb-0 mt-3">Ujang Bedog</h3>
+					<p>Coffee Enthusiast</p>
+
+				</div>
+			</li>		
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1"><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0 mb-0" style="text-transform: none; font-size: 18px;" >Kopi yang biasa gue minum ada disini, gue ngerasain banget kemudahan dalam menggunakan aplikasi ini untuk dapetin kopi yang gue mau</h3>
+					<h3 class="mb-0 mt-3">Tombak Zilong</h3>
+					<p>Tukang ngopi 3x sehari</p>
+
+				</div>
+			</li>		
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1"><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0" style="text-transform: none; font-size: 18px;" >Satu kata buat hellocoffe, MANTUL!</h3>
+					<h3 class="mb-0 mt-3">Helmi Ruslan</h3>
+					<p>Espresso Lover</p>
+
+				</div>
+			</li>
+
+		</ul>
+
+
+	</section>
+
 
 
 
