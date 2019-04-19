@@ -30,6 +30,8 @@ class home extends CI_Controller {
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['id_user'] = $data[0]['id_user'];
 					$_SESSION['id_toko'] = $data[0]['id_toko'];
+					$_SESSION['gender'] = $data[0]['gender'];
+					$_SESSION['email'] = $data[0]['email'];
 
 					if($data[0]['id_toko'] != 0){
 						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);

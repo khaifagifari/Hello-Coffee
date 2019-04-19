@@ -20,7 +20,7 @@
                             Selamat datang <?php echo $user['username']; ?>!
                         </h5>
                         <h6>
-                            Status : User
+                            Status : <?php if($user['id_toko']!=0){echo "Toko Kopi";}else{echo "User";} ?>
                         </h6>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -78,8 +78,8 @@
                             
                         </div>
                         <hr>    
-                        <a href="" class="btn btn-primary float-right  ">Edit Akun</a>
-                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>"onClick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
+                        <a href="<?php echo base_url('Akun/editAkun') ?>" class="btn btn-primary float-right  ">Edit Akun</a>
+                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?');" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
                     </div>
                 <?php endforeach; ?>
                 </div>
