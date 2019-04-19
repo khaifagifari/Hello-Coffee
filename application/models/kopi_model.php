@@ -3,11 +3,11 @@
 class kopi_model extends CI_Model{
 
 	public function getKopi(){
-		$query = $this->db->get('kopi');
+		$query = $this->db->get('menu');
 		return $query->result_array();
 	}
-	public function getKopiById($id_kopi){
-		$query = $this->db->query("SELECT * FROM kopi WHERE id_kopi='$id_kopi'");
+	public function getKopiById($id_menu){
+		$query = $this->db->query("SELECT * FROM menu WHERE id_menu='$id_menu'");
         return $query->result_array();
         //return as object array
 	}

@@ -22,7 +22,7 @@ height: 100%;">
 			</aside>
 			<aside class="col-sm-6">
 				<article class="card-body px-5 text-justify" style="padding-top: 30px;">
-					<h3 class="title mb-3"><?php echo $kopi['nama_kopi'] ?></h3>
+					<h3 class="title mb-3"><?php echo $kopi['nama_menu'] ?></h3>
 
 					<p class="price-detail-wrap"> 
 						<span class="price h3 text-warning"> 

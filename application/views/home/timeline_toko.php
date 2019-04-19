@@ -1,4 +1,4 @@
-	
+
 <div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.wallpaperscraft.com/image/coffee_book_windowsill_130911_1920x1080.jpg'); height: 650px; width: 100%;">
 	<div class="container">
 		<h1 class="mt-5 pt-5">Hello Coffee</h1>      
@@ -10,45 +10,43 @@
 <section style="min-height: 920px;" id="menu" class="pt-3">
 	<div class="container-fluid text-center text-capitalize">
 		<h2 class="mt-5 pt-lg-4"> TOKO KOPI</h2>  
-		<h5 class="mb-4">You can choose anything u want</h5>
-		<div class="container">
-			<div class="row">
-				<!-- COFFEE CARD -->
-				<?php define('i', 0);?>
-				<?php foreach ($toko as $data) : ?>
-					<?php if(i <= 2): ?>
-					<div class="col-12 col-md-6 col-lg-4">
-						<form method="post" action="" method="post" accept-charset="utf-8">
-							<article class="card-wrapper text-dark text-center">
+			<h5 class="mb-4">You can choose anything u want</h5>
+			<div class="container">
+				<div class="row">
+					<!-- COFFEE CARD -->
+					<?php foreach ($menu as $kopi) : ?>
+						<div class="col-12 col-md-6 col-lg-4">
+							<form method="post" action="" method="post" accept-charset="utf-8">
+								<article class="card-wrapper text-dark text-center">
 
-								<div class="image-holder">	<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
+									<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
 
-									<div class="image-liquid image-holder--original"
-									style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
+										<div class="image-liquid image-holder--original"
+										style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+									</div>
 								</div>
-							</div>
-							<div class="product-description">
-								<!-- title -->
-								<div class="card-body pt-2 pb-2">
-									<h5 class="card-title mb-3"><?php echo $data['nama_toko'] ?></h5>
-									<hr class="mb-2 mt-0">
-									<p class="card-text"><?php echo $data['alamat'] ?></p>
+								<div class="product-description">
+									<!-- title -->
+									<div class="card-body pt-2 pb-2">
+										<h5 class="card-title mb-3"><?php echo $kopi['nama_menu'] ?></h5>
+										<hr class="mb-2 mt-0">
+										<p class="card-text">Id = <?php echo $kopi['id_menu'] ?></p>
+										<p class="card-text"><?php echo $kopi['jenis'] ?></p>
+									</div>
+									<a href="<?php echo base_url('Detail_produk/detail/'); echo $kopi['id_menu']; ?>" class="btn btn-primary float-right ">Detail</a>	
+									<input type="hidden" name="id_menu" value="<?php echo $kopi['id_menu']; ?>" />
+									<input type="hidden" name="nama_menu" value="<?php echo $kopi['nama_menu']; ?>" />
+									<input type="hidden" name="harga" value="<?php echo $kopi['harga']; ?>" />
+									<input type="hidden" name="jenis" value="<?php echo $kopi['jenis']; ?>" />
 								</div>
-								<a href="<?php ?>" class="btn btn-primary float-right ">Detail</a>	
-								<input type="hidden" name="id_toko" value="<?php echo $data['id_toko']; ?>" />
-								<input type="hidden" name="nama_toko" value="<?php echo $data['nama_toko']; ?>" />
-								<input type="hidden" name="alamat" value="<?php echo $data['alamat']; ?>" />
-							</div>
-						</article>
-					</form>
-				</div>
-				<?php endif; ?>
-			<?php endforeach; ?>
-			<!-- end COFFEE CARD -->
+							</article>
+						</form>
+					</div>
+				<?php endforeach; ?>
+				<!-- end COFFEE CARD -->
+			</div>
 		</div>
 	</div>
-</div>
-
 </section>
 
 <!-- this is for carousel -->
@@ -101,7 +99,6 @@
 					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0" style="text-transform: none; font-size: 18px;" >Gak nyesel gue beli kopi disini, gue gaperlu jauh-jauh ke toko karena semuanya ada disni.</h3>
 					<h3 class="mb-0 mt-3">Ujang Bedog</h3>
 					<p>Coffee Enthusiast</p>
-
 				</div>
 			</li>		
 			<li class="col-12 col-md-6 col-lg-4">
@@ -122,6 +119,5 @@
 
 				</div>
 			</li>
-
 		</ul>
 	</section>

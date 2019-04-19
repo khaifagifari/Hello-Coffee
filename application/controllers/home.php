@@ -6,10 +6,9 @@ class home extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Users_model');
-
 		$this->load->model('komentar_model');
-		$this->load->model('menu_model');
 		$this->load->model('kopi_model');
+		$this->load->model('toko_model');
 
 		$this->load->library('form_validation');
 	}
@@ -29,15 +28,24 @@ class home extends CI_Controller {
 
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
 					$_SESSION['username'] = $data[0]['username'];
-					// $_SESSION['id_user'] = $data[0]['id_user'];
-					//$_SESSION['id_toko'] = $data[0]['id_toko']; untuk toko nanti
+					$_SESSION['id_user'] = $data[0]['id_user'];
+					$_SESSION['id_toko'] = $data[0]['id_toko'];
 
-					$_SESSION['username'] = $this->input->post('email');
-					$data['coffee'] = $this->kopi_model->getKopi();
+					if($data[0]['id_toko'] != 0){
+						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
+						$this->load->view('templates/header');
+						$this->load->view('home/timeline_toko',$data);
+						$this->load->view('templates/footer');
+					}else{
+						$_SESSION['username'] = $this->input->post('email');
+						$data['toko'] = $this->toko_model->getToko();
 
-					$this->load->view('templates/header');
-					$this->load->view('home/table',$data);
-					$this->load->view('templates/footer');
+						$this->load->view('templates/header');
+						$this->load->view('home/table',$data);
+						$this->load->view('templates/footer');
+					}
+
+					
 				}else{
 					$this->load->view('home/index');
 				}
@@ -149,5 +157,10 @@ class home extends CI_Controller {
 		$this->load->view('home/table', $data);
 	}
 
+	public function logout(){
+		session_start();
+		session_destroy();
+		redirect('home');
+	}
 }
 ?>
