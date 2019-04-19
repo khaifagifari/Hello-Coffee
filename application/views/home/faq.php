@@ -5,7 +5,7 @@
 <h1>FAQ Section</h1>
 
   <div class="container5">
-    <!-- Accordion Starts-->
+    
     <div class="acc">
       <h3>Pertanyaan 1 : Apakah itu hello coffee ?</h3>
       <div class="content">
@@ -15,7 +15,6 @@
       </div>
     </div>
 
-    <!-- Accordian -->
     <div class="acc">
       <h3>Pertanyaan 2: Kenapa saya harus mengakses laman ini?</h3>
       <div class="content">
@@ -25,27 +24,17 @@
       </div>
     </div>
 
-    <!-- Accordian -->
     <div class="acc">
-      <h3>Pertanyaan 3: Kenapa mas fadhil ganteng?</h3>
+      <h3>Pertanyaan 3: Bagaimana cara memesan Kopi dihalaman website?</h3>
       <div class="content">
         <div class="content-inner">
-          <p>Emang telah kodrat nya tidak bisa diubah walaupun dosen berkehendak          </p>
+          <p>User hanya tinggal memilih toko kopi yang berada di halama home, setelah itu user dapat memilih kopi yg ingin dipesa selanjutnya akan masuk kedalah halaman check out </p>
         </div>
       </div>
     </div>
 
-    <!-- Accordian -->
-    <div class="acc">
-      <h3>Pertanyaan 4: Apakah cibarusah termasuk kota yang hancur?</h3>
-      <div class="content">
-        <div class="content-inner">
-          <p>Ya betul sekali cibarusah merupakah salah satu kota yang masuk guinness of world records kedalam kategori penduduknya yg memiliki iq dibawah rata-rata</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  
+  
 
 </section>
 
