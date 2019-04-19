@@ -30,7 +30,7 @@
         <div class="card card-signin my-5 bg-transparent">
           <div class="card-body bg-transparent">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin" method="POST" action="">
+            <form class="form-signin" method="POST" action="<?= base_url(); ?>home/">
               <div class="form-label-group">
                 <input type="text" id="email" class="form-control" placeholder="Email address" name="email" required autofocus>
                 <label for="email">Email address</label>

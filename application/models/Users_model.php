@@ -9,13 +9,18 @@ class Users_model extends CI_Model{
 	public function getAllUser(){
 		return $this->db->get('user')->result_array();
 	}
+	public function getUserById($id_user){
+		$query = $this->db->query("SELECT * FROM user WHERE id_user='$id_user'");
+        return $query->result_array();
+        //return as object array
+	}
 
 	public function tambahUser(){
 		$gender = $this->input->post('gender', true);
 		if($gender = 'Laki-laki'){
-			$gender = 'L';
-		}else{
-			$gender = 'P';
+			$gender = 'Laki-laki';
+		}else if($gender = 'perempuan'){
+			$gender = 'Perempuan';
 		}
 		$data = [
 			"username" => $this->input->post('username', true),
@@ -26,8 +31,8 @@ class Users_model extends CI_Model{
 		return $this->db->insert('user', $data);
 	}
 
-	public function deleteUser($username){
-		$this->db->where('username',$username);
+	public function deleteUser($id_user){
+		$this->db->where('id_user',$id_user);
 		return $this->db->delete('user');
 	}
 

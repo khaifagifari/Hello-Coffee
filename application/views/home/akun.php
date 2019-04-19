@@ -3,7 +3,7 @@
       <h2>Pengaturan Akun</h2>
     </div>
     <div class="container emp-profile">
-        <form method="post">
+        <form method="post" action="">
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
@@ -14,7 +14,10 @@
                 <div class="col-md-8">
                     <div class="profile-head">
                         <h5>
-                            Nama Pengguna
+                            <?php foreach ($users as $user) : {
+                                # code...
+                            } ?>
+                            Selamat datang <?php echo $user['username']; ?>!
                         </h5>
                         <h6>
                             Status : User
@@ -35,7 +38,7 @@
                                     <label>User Id</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>silakan load User id</p>
+                                    <label><?php echo $user['id_user']; ?></label>
                                 </div>
                             </div>
                             <div class="row">
@@ -43,7 +46,7 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Silakan load nama</p>
+                                    <label><?php echo $user['username']; ?></label>
                                 </div>
                             </div>
                             <div class="row">
@@ -51,7 +54,7 @@
                                     <label>Email</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>silakanloademail@gmail.com</p>
+                                    <label><?php echo $user['email']; ?></label>
                                 </div>
                             </div>
                             <div class="row">
@@ -59,7 +62,7 @@
                                     <label>Gender</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p>Load gender</p>
+                                    <label><?php echo $user['gender']; ?></label>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +79,9 @@
                         </div>
                         <hr>    
                         <a href="" class="btn btn-primary float-right  ">Edit Akun</a>
-
-                    <button class='btn btn btn-danger float-right mr-3' onClick="return confirm('Apakah Anda Yakin?')">Delete Akun</button>
+                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
                     </div>
+                <?php endforeach; ?>
                 </div>
             </div>
     
