@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2019 at 05:23 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.1
+-- Waktu pembuatan: 19 Apr 2019 pada 13.22
+-- Versi server: 10.1.37-MariaDB
+-- Versi PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,27 +25,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `daftar_toko`
+-- Struktur dari tabel `daftar_toko`
 --
 
 CREATE TABLE `daftar_toko` (
   `id_toko` int(8) NOT NULL,
   `nama_toko` varchar(32) NOT NULL,
   `alamat` varchar(128) NOT NULL,
-  `id_user` int(8) NOT NULL
+  `id_user` int(8) NOT NULL,
+  `foto` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `daftar_toko`
+-- Dumping data untuk tabel `daftar_toko`
 --
 
-INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`) VALUES
-(1, 'Kopi Tungku', 'Bandung, bojongsoang', 5);
+INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`, `foto`) VALUES
+(1, 'Kopi Tungku', 'Bandung, bojongsoang', 5, 'tungku.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar`
+-- Struktur dari tabel `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -58,31 +59,7 @@ CREATE TABLE `komentar` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kopi`
---
-
-CREATE TABLE `kopi` (
-  `nama_kopi` varchar(128) NOT NULL,
-  `id_kopi` int(128) NOT NULL,
-  `jenis` varchar(128) NOT NULL,
-  `harga` int(11) NOT NULL,
-  `deskripsi` varchar(1000) NOT NULL,
-  `foto` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `kopi`
---
-
-INSERT INTO `kopi` (`nama_kopi`, `id_kopi`, `jenis`, `harga`, `deskripsi`, `foto`) VALUES
-('Kopi Kulo', 1, 'Macchiato', 20000, 'Macchiato merupakan espresso yang diberi campuran susu foam. Foam atau susu yang di-steam sendiri kadarnya sedikit, sehingga rasanya tetap strong.', 'coffee1.jpg'),
-('Kopi Tungku', 2, 'Espresso', 15000, 'Espresso merupakan kopi modern yang paling kuat kadar kopinya (very strong). Espresso merupakan ekstrak biji kopi murni tanpa campuran. Rasanya sudah pasti pahit, dengan tingkat kekentalannya tergantung dari biji kopi yang digunakan. Espresso biasa dikonsumsi dalam cangkir kecil.', 'coffee31.jpg'),
-('Kopi 372', 3, 'Cappucino', 25000, 'Ini dia yang sajian kopi modern yang populer karena mudah ditemui, bahkan kini tersaji dalam bentuk instan. Cappucino pada dasarnya merupakan kopi susu yang juga diberi foam.', 'coffee4.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `menu`
+-- Struktur dari tabel `menu`
 --
 
 CREATE TABLE `menu` (
@@ -90,20 +67,24 @@ CREATE TABLE `menu` (
   `nama_menu` varchar(64) NOT NULL,
   `harga` int(16) NOT NULL,
   `deskripsi` varchar(256) NOT NULL,
+  `jenis` varchar(32) NOT NULL,
+  `foto` varchar(32) NOT NULL,
   `id_toko` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `menu`
+-- Dumping data untuk tabel `menu`
 --
 
-INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `deskripsi`, `id_toko`) VALUES
-(0, 'Kopi Capucino', 10000, 'Kopi yang pantas buat kamu yang manis', 1);
+INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `deskripsi`, `jenis`, `foto`, `id_toko`) VALUES
+(1, 'Kopi Capucino', 10000, 'Kopi yang pantas buat kamu yang manis', 'Capucino', 'coffee1.jpg', 1),
+(2, 'Kopi Espreso', 15000, 'Espresso merupakan kopi modern yang paling kuat kadar kopinya (very strong). Espresso merupakan ekstrak biji kopi murni tanpa campuran. Rasanya sudah pasti pahit, dengan tingkat kekentalannya tergantung dari biji kopi yang digunakan. Espresso biasa dikonsu', 'Espreso', 'Coffee4.jpg', 1),
+(3, 'Kopi Macchiato', 20000, 'Macchiato merupakan espresso yang diberi campuran susu foam. Foam atau susu yang di-steam sendiri kadarnya sedikit, sehingga rasanya tetap strong.', 'Macchiato', 'Coffee1.jpg', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -116,7 +97,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gender`, `id_toko`) VALUES
@@ -131,20 +112,44 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gender`, `id_to
 --
 
 --
--- Indexes for table `kopi`
+-- Indeks untuk tabel `daftar_toko`
 --
-ALTER TABLE `kopi`
-  ADD PRIMARY KEY (`id_kopi`);
+ALTER TABLE `daftar_toko`
+  ADD PRIMARY KEY (`id_toko`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id_komentar`);
+
+--
+-- Indeks untuk tabel `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id_menu`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kopi`
+-- AUTO_INCREMENT untuk tabel `daftar_toko`
 --
-ALTER TABLE `kopi`
-  MODIFY `id_kopi` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `daftar_toko`
+  MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
