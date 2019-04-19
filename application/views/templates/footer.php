@@ -3,7 +3,6 @@
             <th></th>
             <th> 
             <a href="<?php echo base_url('About/') ?>">About</a><br>
-            <a href="<?php echo base_url('Team/') ?>">Our Team</a><br>
             <a href="<?php echo base_url('FAQ/') ?>">FAQ</a>
             </th>
             <th>  

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +18,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css" />
   <link rel="shortcut icon" href="<?php echo base_url('assets/img/Coffee9.jpg') ?>">
- 
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,7 +30,7 @@
         <div class="card card-signin my-5 bg-transparent">
           <div class="card-body bg-transparent">
             <h5 class="card-title text-center">Sign In</h5>
-            <form class="form-signin" method="POST" action="">
+            <form class="form-signin" method="POST" action="<?= base_url(); ?>home/">
               <div class="form-label-group">
                 <input type="text" id="email" class="form-control" placeholder="Email address" name="email" required autofocus>
                 <label for="email">Email address</label>
@@ -57,6 +56,3 @@
     </div>
   </div>
   
-
-</body>
-</html> 

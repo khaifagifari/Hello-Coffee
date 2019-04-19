@@ -14,7 +14,7 @@ class Registration extends CI_Controller{
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
 
 		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('templates/header');
+			$this->load->view('templates/head');
 			$this->load->view('home/registration');
 
 		} else {
@@ -24,8 +24,18 @@ class Registration extends CI_Controller{
 					//tambahin flash data "sudah ada username"
 				}else{
 					$this->Users_model->tambahUser();
+					$this->load->model('toko_model');
+					$data = $this->Users_model->cariUser($this->input->post('username'))->result_array();
+					$_SESSION['username'] = $data[0]['username'];
+					$_SESSION['id_user'] = $data[0]['id_user'];
+					$_SESSION['id_toko'] = $data[0]['id_toko'];
+					$_SESSION['gender'] = $data[0]['gender'];
+					$_SESSION['email'] = $data[0]['email'];
+
+					$data['toko'] = $this->toko_model->getToko();
 					$this->load->view('templates/header');
-					$this->load->view('home/table');
+					$this->load->view('home/table',$data);
+					$this->load->view('templates/footer');
 				}
 			}
 		}
