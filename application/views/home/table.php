@@ -1,102 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<head>
-	<title>Haslo Coffee</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.wallpaperscraft.com/image/coffee_book_windowsill_130911_1920x1080.jpg'); height: 650px; width: 100%;">
+	<div class="container">
+		<h1 class="mt-5 pt-5">Hello Coffee</h1>      
+		<p>A bad day with coffee is better than a good day without it</p>
+	</div>
+</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-<body class="mt-5">
-	<header>
+
+<section style="min-height: 920px;" id="menu" class="pt-3">
+	<div class="container-fluid text-center text-capitalize">
+		<h2 class="mt-5 pt-lg-4"> OUR MENUS</h2>  
+		<h5 class="mb-4">You can choose anything u want</h5>
+
+
 		<div class="container">
-			<nav class="navbar navbar-expand-lg navbar-dark fixed-top pl-5" style="background-color: black;">
-				<a class="navbar-brand" href="#">Hello Coffee</a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
+			<div class="row">
 
-				<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-					<ul class="navbar-nav ml-auto pr-5 mt-2 mt-lg-0 text-uppercase">
-						<li class="nav-item ">
-							<a class="nav-link" href="#te" style="color: white;" >Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#menu"  style="color: white;">Menu</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?= base_url(); ?>home"  style="color: white;">logout</a>
-						</li>
-					</ul>
+				<!-- COFFEE CARD -->
+				
+				<?php foreach ($coffee as $kopi) : ?>
+					<div class="col-12 col-md-6 col-lg-4">
+						<form method="post" action="" method="post" accept-charset="utf-8">
+							<article class="card-wrapper text-dark text-center">
+
+								<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+
+									<div class="image-liquid image-holder--original"
+									style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+								</div>
+							</div>
+							<div class="product-description">
+								<!-- title -->
+								<div class="card-body pt-2 pb-2">
+									<h5 class="card-title mb-3"><?php echo $kopi['nama_kopi'] ?></h5>
+									<hr class="mb-2 mt-0">
+									<p class="card-text">Id = <?php echo $kopi['id_kopi'] ?></p>
+									<p class="card-text"><?php echo $kopi['jenis'] ?></p>
+								</div>
+								<a href="<?php echo base_url('') ?>Detail_produk/detail/<?php echo $kopi['id_kopi']; ?>" class="btn btn-primary float-right ">Detail</a>
+								
+								<input type="hidden" name="id_kopi" value="<?php echo $kopi['id_kopi']; ?>" />
+								<input type="hidden" name="nama_kopi" value="<?php echo $kopi['nama_kopi']; ?>" />
+								<input type="hidden" name="harga" value="<?php echo $kopi['harga']; ?>" />
+								<input type="hidden" name="jenis" value="<?php echo $kopi['jenis']; ?>" />
+							</div>
+						</article>
+					</form>
 				</div>
-			</nav>
-		</div>
-	</header>
-	<div class="jumbotron text-white" style="background-image: url('https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1791&q=80'); height: 700px; width: 100%">
-		<div class="container">
-			<h1>Hello Coffee</h1>      
-			<p>Best coffee in ur area.</p>
+
+			<?php endforeach; ?>
+
+			<!-- end COFFEE CARD -->
+
 		</div>
 	</div>
+</div>
 
-	<section style="min-height: 920px;" id="menu" class="pt-3">
-		<div class="container-fluid text-center text-capitalize">
-			<h3 class="pt-5">Our Menus</h3>      
-			<h5>You can choose anything u want</h5>
-			<div class="row mt-4">
-				<div  class="card-deck text-center" ">
-					<div class="col-md-3">
-						<div class="card">
-							<img class="card-img-top" src="https://images.unsplash.com/photo-1506372023823-741c83b836fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Kopi Kulo</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="card">
-							<img class="card-img-top" src="https://images.unsplash.com/photo-1489866492941-15d60bdaa7e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Kopi Tungkooo</h5>
+</section>
 
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="card">
-							<img class="card-img-top" src="https://images.unsplash.com/photo-1489866492941-15d60bdaa7e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Kopi aing</h5>
+<!-- this is for carousel -->
 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3">
-						<div class="card">
-							<img class="card-img-top" src="https://images.unsplash.com/photo-1489866492941-15d60bdaa7e0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80" alt="Card image cap">
-							<div class="card-body">
-								<h5 class="card-title">Kopi aing</h5>
-							</div>
-						</div>
-					</div> 
+<section class="mt-5 mb-5">
+
+
+	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner" style="height: 550px">
+			<div class="carousel-item active">
+				<img class="d-block w-100" src="https://images.unsplash.com/photo-1413745094207-a01b234cc32f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80" alt="First slide">
+				<div class="carousel-caption">
+					<h3>taste.</h3>
+					<p>Feel the best taste of coffee here!</p>
+
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" src="https://images.unsplash.com/photo-1442550528053-c431ecb55509?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="Second slide">
+				<div class="carousel-caption">
+					<h3>Variant</h3>
+					<p>All your favourite coffee ready to yours</p>
+				</div>
+			</div>				
+			<div class="carousel-item">
+
+				<img class="d-block w-100" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" alt="Third slide">
+				<div class="carousel-caption">
+					<h3>IPOK METIIIII</h3>
+					<p>Thank you!</p>
 				</div>
 			</div>
 		</div>
+	</div>
+
+</section>
+
+<section id="testimonial" class="our-webcoderskull padding-lg" style="background: none;">
+	<div class="container">
+			<h2 class="mb-5" style="color: black;">Testimonials</h2>
+		<ul class="row">
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1 "><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0" style="text-transform: none; font-size: 18px;" >Gak nyesel gue beli kopi disini, gue gaperlu jauh-jauh ke toko karena semuanya ada disni.</h3>
+					<h3 class="mb-0 mt-3">Ujang Bedog</h3>
+					<p>Coffee Enthusiast</p>
+
+				</div>
+			</li>		
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1"><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0 mb-0" style="text-transform: none; font-size: 18px;" >Kopi yang biasa gue minum ada disini, gue ngerasain banget kemudahan dalam menggunakan aplikasi ini untuk dapetin kopi yang gue mau</h3>
+					<h3 class="mb-0 mt-3">Tombak Zilong</h3>
+					<p>Tukang ngopi 3x sehari</p>
+
+				</div>
+			</li>		
+			<li class="col-12 col-md-6 col-lg-4">
+				<div class="cnt-block equal-hight pt-lg-4" style="height: 349px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+					<div class="quote mb-1"><i class="fa fa-quote-left fa-4x"></i></div>
+					<h3 class="font-weight-normal text-dark font-italic p-md-3 pt-0" style="text-transform: none; font-size: 18px;" >Satu kata buat hellocoffe, MANTUL!</h3>
+					<h3 class="mb-0 mt-3">Helmi Ruslan</h3>
+					<p>Espresso Lover</p>
+
+				</div>
+			</li>
+
+		</ul>
+
+
 	</section>
-	<footer class="footer">
-		<div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-		<div class="h4 title text-center">Hello Coffee</div>
-		<div class="text-center text-muted">
-			<p>&copy; Hello coffee. All rights reserved.</p>
-		</div>
-	</footer>
 
-</body>
 
-</html>
+
+
