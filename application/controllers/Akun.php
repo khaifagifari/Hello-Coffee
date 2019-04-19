@@ -25,8 +25,6 @@ class Akun extends CI_Controller{
 	}
 	public function deleteAkun($id_user){
 		$this->Users_model->deleteUser($id_user);
-		session_start();
-		session_destroy();
 		redirect('home');
 	}
 }

@@ -12,6 +12,7 @@ class Registration extends CI_Controller{
 		$this->form_validation->set_rules('username', 'Username', 'required|trim');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
+		$this->form_validation->set_rules('gender', 'Gender', 'required');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('home/registration');

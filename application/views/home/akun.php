@@ -79,7 +79,7 @@
                         </div>
                         <hr>    
                         <a href="" class="btn btn-primary float-right  ">Edit Akun</a>
-                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
+                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>"onClick="return confirm('Apakah Anda Yakin?')" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
                     </div>
                 <?php endforeach; ?>
                 </div>

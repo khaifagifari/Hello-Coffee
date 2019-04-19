@@ -17,11 +17,6 @@ class Users_model extends CI_Model{
 
 	public function tambahUser(){
 		$gender = $this->input->post('gender', true);
-		if($gender = 'Laki-laki'){
-			$gender = 'Laki-laki';
-		}else if($gender = 'perempuan'){
-			$gender = 'Perempuan';
-		}
 		$data = [
 			"username" => $this->input->post('username', true),
 			"password" => $this->input->post('password', true),

@@ -45,11 +45,11 @@
 								<label class="label mr-5 ml-4">Gender :</label>
 
 								<div class="custom-control custom-radio custom-control-inline ml-5 mb-3">
-									<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="laki-laki">
+									<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="Laki-laki">
 									<label class="custom-control-label" for="customRadio">Laki-laki</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="perempuan">
+									<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="Perempuan">
 									<label class="custom-control-label" for="customRadio2">Perempuan</label>
 								</div>  
 
