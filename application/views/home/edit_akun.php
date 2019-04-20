@@ -4,8 +4,8 @@
 		 	<h5 class="card-title text-center font-weight-bold")">EDIT DATA AKUN</h5>
 			<form class="form-signin" method="POST" action="<?php echo base_url('akun/editAkun')?>">
 				<div class="form-label-group">
-					<input type="text" id="username" name="username" class="form-control" value="<?php echo $_SESSION['username']; ?>" required>
-					<label for="username" class="font-weight-bold">Username</label>
+					<input type="text" id="nama" name="nama" class="form-control" value="<?php echo $_SESSION['nama']; ?>" required>
+					<label for="nama" class="font-weight-bold">Nama</label>
 				</div>
 				<div class="form-label-group">
 					<input type="email" id="email" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>">
@@ -14,11 +14,11 @@
 				<div class="row">
 					<label class="label mr-5 ml-4">Gender :</label>
 					<div class="custom-control custom-radio custom-control-inline ml-5 mb-3">
-						<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="laki-laki">
+						<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="Laki-laki">
 						<label class="custom-control-label" for="customRadio">Laki-laki</label>
 					</div>
 					<div class="custom-control custom-radio custom-control-inline">
-						<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="perempuan" required="">
+						<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="Perempuan" required="">
 						<label class="custom-control-label" for="customRadio2">Perempuan</label>
 					</div>
 				</div>

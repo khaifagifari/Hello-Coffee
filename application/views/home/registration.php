@@ -19,7 +19,10 @@
 								<input type="text" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
 								<label for="inputEmail">Email address</label>
 							</div>
-
+							<div class="form-label-group">
+								<input type="text" id="inputNama" class="form-control" placeholder="Nama" name="nama" required autofocus>
+								<label for="inputNama">Nama</label>
+							</div>
 							<div class="row"> 
 								<label class="label mr-5 ml-4">Gender :</label>
 

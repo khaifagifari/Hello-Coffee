@@ -12,6 +12,10 @@ class kopi_model extends CI_Model{
         //return as object array
 	}
 
+	public function tambahMenu($data){
+		return $this->db->insert('menu',$data);
+	}
+
 	public function getMenuToko($id){
 		$this->db->from('menu');
 		$this->db->where('id_toko',$id);

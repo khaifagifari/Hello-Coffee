@@ -1,9 +1,16 @@
 <?php 
 
-class menu extends CI_Controller(){
-	public function hapusMenu($id_menu){
+class menu extends CI_Controller{
+
+	public function __construct(){
+		parent::__construct();
 		$this->load->model('kopi_model');
-		$this->kopi_model->delete_menu($id_menu);
+
+		$this->load->library('form_validation');
+	}
+
+	public function hapusMenu($id_menu){
+		$this->kopi_model->deleteMenu($id_menu);
 
 		redirect('timeline/toko');
 	}
@@ -13,11 +20,12 @@ class menu extends CI_Controller(){
 		$this->form_validation->set_rules('harga',"Harga",'required');
 		$this->form_validation->set_rules('deskripsi',"Deskripsi",'required');
 		$this->form_validation->set_rules('jenis',"Jenis",'required');
-		$this->form_validation->set_rules('foto',"Foto",'required');
+		$this->form_validation->set_message('nama_menu', 'You must select a business');
+		// $this->form_validation->set_rules('foto',"Foto",'required');
 
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('templates/header_toko');
-			// $this->load->view('home/tambah_menu'); untuk load view tambah menu
+			$this->load->view('home/tambah_menu');
 			$this->load->view('templates/footer');
 		}else{
 			$data = [
@@ -25,27 +33,27 @@ class menu extends CI_Controller(){
 				"harga" => $this->input->post('harga'),
 				"deskripsi" => $this->input->post('deskripsi'),
 				"jenis" => $this->input->post('jenis'),
-				"foto" => $this->input->post('foto'),
+				// "foto" => $this->input->post('Foto'),
 				"id_toko" => $_SESSION['id_toko'],
 			];
 
-			$this->load->model('menu_model');
-			$this->menu_model->tambahMenu($data);
+			$this->kopi_model->tambahMenu($data);
 
 			redirect('timeline/toko');
 		}
 	}
 
 	public function editMenu($id_menu){
+		$menu['menu'] = $this->kopi_model->getKopiById($id_menu);
 		$this->form_validation->set_rules('nama_menu',"Nama Menu",'required');
 		$this->form_validation->set_rules('harga',"Harga",'required');
 		$this->form_validation->set_rules('deskripsi',"Deskripsi",'required');
 		$this->form_validation->set_rules('jenis',"Jenis",'required');
-		$this->form_validation->set_rules('foto',"Foto",'required');
+		// $this->form_validation->set_rules('foto',"Foto",'required');
 
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('templates/header_toko');
-			// $this->load->view('home/edit_menu'); untuk load view edit menu
+			$this->load->view('home/edit_menu',$menu);
 			$this->load->view('templates/footer');
 		}else{
 			$data = [
@@ -53,11 +61,10 @@ class menu extends CI_Controller(){
 				"harga" => $this->input->post('harga'),
 				"deskripsi" => $this->input->post('deskripsi'),
 				"jenis" => $this->input->post('jenis'),
-				"foto" => $this->input->post('foto'),
+				// "foto" => $this->input->post('foto'),
 			];
 
-			$this->load->model('menu_model');
-			$this->menu_model->editMenu($id_menu,$data);
+			$this->kopi_model->editMenu($id_menu,$data);
 
 			redirect('timeline/toko');
 		}

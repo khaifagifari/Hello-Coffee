@@ -23,6 +23,7 @@ class Users_model extends CI_Model{
 			"password" => md5($this->input->post('password', true)),
 			"email" => $this->input->post('email', true),
 			"gender" => $gender,
+			"nama" => $this->input->post('nama',true),
 		];
 		return $this->db->insert('user', $data);
 	}
