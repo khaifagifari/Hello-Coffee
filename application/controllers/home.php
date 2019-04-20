@@ -35,7 +35,7 @@ class home extends CI_Controller {
 
 					if($data[0]['id_toko'] != 0){
 						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
-						$this->load->view('templates/header');
+						$this->load->view('templates/header_toko');
 						$this->load->view('home/timeline_toko',$data);
 						$this->load->view('templates/footer');
 					}else{
