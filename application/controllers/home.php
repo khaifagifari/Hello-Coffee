@@ -23,7 +23,7 @@ class home extends CI_Controller {
 		}
 		else{
 			if (($this->input->post('email')) and ($this->input->post('password'))){
-				$row = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->num_rows();
+				$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
 				if($row == 1){
 
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
@@ -39,7 +39,6 @@ class home extends CI_Controller {
 						$this->load->view('home/timeline_toko',$data);
 						$this->load->view('templates/footer');
 					}else{
-						$_SESSION['username'] = $this->input->post('email');
 						$data['toko'] = $this->toko_model->getToko();
 
 						$this->load->view('templates/header');

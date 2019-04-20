@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Apr 2019 pada 13.22
+-- Waktu pembuatan: 20 Apr 2019 pada 08.47
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -41,7 +41,10 @@ CREATE TABLE `daftar_toko` (
 --
 
 INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`, `foto`) VALUES
-(1, 'Kopi Tungku', 'Bandung, bojongsoang', 5, 'tungku.jpg');
+(1, 'Kopi Tungku', 'Bandung, bojongsoang', 5, 'tungku.jpg'),
+(2, 'Kopi 372', 'Bandung, bojongsoang', 5, '372.jpg'),
+(3, 'Kopi Kulo', 'Bandung, bojongsoang', 5, 'kulo.jpg'),
+(4, 'tes', 'tes', 5, 'tes');
 
 -- --------------------------------------------------------
 
@@ -101,11 +104,11 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gender`, `id_toko`) VALUES
-(1, 'Faris', 'faris', 'faris@gmail.com', 'L', 0),
-(2, 'Ihsan', 'ihsan', 'ihsan@gmail.com', 'L', 0),
-(3, 'Kekey', 'kekey', 'kekey@gmail.com', 'L', 0),
-(4, 'Putra', 'putra', 'putra@gmail.com', 'L', 0),
-(5, 'toko', 'toko', 'toko@gmail.com', 'L', 1);
+(1, 'faris', '7d77e825b80cff62a72e680c1c81424f', 'faris@gmail.com', 'laki-laki', 0),
+(2, 'Ihsan', 'f9c8074d5a013e0729373f8f74cd0648', 'ihsan@gmail.com', 'L', 0),
+(3, 'Kekey', '93960bd0831c5282386062cfa3903c6b', 'kekey@gmail.com', 'L', 0),
+(4, 'putra', '5e0c5a0bf82decdd43b2150b622c66c5', 'putra@gmail.com', 'laki-laki', 0),
+(5, 'toko', 'bbb48314e5e6ee68d2d8bc1364b8599b', 'toko@gmail.com', 'L', 1);
 
 --
 -- Indexes for dumped tables
@@ -143,7 +146,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `daftar_toko`
 --
 ALTER TABLE `daftar_toko`
-  MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu`
