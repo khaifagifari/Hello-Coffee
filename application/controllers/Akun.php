@@ -39,6 +39,36 @@ class Akun extends CI_Controller{
 			redirect('Akun/pengaturanAkun/'.$_SESSION['id_user']);	
 		}
 	}
+
+	public function editPassword(){
+		$this->load->model('Users_model');
+		$this->form_validation->set_rules('pwlama','Password','required');
+		$this->form_validation->set_rules('pwbaru','Password baru');
+		$this->form_validation->set_rules('pwconf','Password baru re-type');
+		if($this->form_validation->run() == FALSE ){
+			$this->load->view('templates/header');
+			$this->load->view('home/edit_password');
+			$this->load->view('templates/footer');	
+		}else if($this->input->post('pwbaru',true) != $this->input->post('pwconf',true)){
+			#flash data
+			$this->load->view('templates/header');
+			$this->load->view('home/edit_password');
+			$this->load->view('templates/footer');
+		}
+		else{
+			$this->load->model('Users_model');
+			$user = $this->Users_model->getUserById($_SESSION['id_user']);
+			if($user[0]['password'] == md5($this->input->post('pwlama',true))){
+				$data = [
+					"password" => md5($this->input->post('pwbaru')),
+				];
+				$this->Users_model->editUser($user[0]['id_user'],$data);
+				redirect('Akun/pengaturanAkun/'.$_SESSION['id_user']);
+			}else{
+				redirect('Akun/editPassword');
+			}
+		}
+	}
 	
 	public function pengaturanAkun($id_user){
 		
