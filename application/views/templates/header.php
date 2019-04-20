@@ -39,6 +39,9 @@
                      <li><a href="<?php echo base_url('shopping/keranjang')?>">Keranjang</a></li>
                      <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
                      <li><a href="<?php echo base_url('Akun/pengaturanAkun/').($_SESSION['id_user']) ?>">akun</a></li>
+
+                     <li><a href="<?php echo base_url('Team/') ?>">Team</a><li>
+
                   </ul>
                </div>
             </nav>
