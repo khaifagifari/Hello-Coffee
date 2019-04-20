@@ -34,7 +34,7 @@
 											<p class="card-text">Harga = <?php echo $kopi['harga'] ?></p>
 											<p class="card-text">Jenis = <?php echo $kopi['jenis'] ?></p>
 										</div>
-										<a href="<?php echo base_url('menu/hapusMenu/'); echo $kopi['id_menu']; ?>" class="btn btn-danger float-left">Hapus Menu</a>
+										<a href="<?php echo base_url('menu/hapusMenu/'); echo $kopi['id_menu']; ?>" onclick="return confirm('Apakah anda yakin menghapus <?php echo $kopi['nama_menu']?>?');"class="btn btn-danger float-left">Hapus Menu</a>
 										<a href="<?php echo base_url('menu/editMenu/'); echo $kopi['id_menu']; ?>" class="btn btn-warning float-right font-weight-bold">Edit Menu</a>
 									</div>
 							</article>
@@ -45,7 +45,7 @@
 					<form method="post" action="" method="post" accept-charset="utf-8">
 						<article class="card-wrapper text-dark text-center">	
 							<div class="image-holder">
-								<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+								<a href="<?php echo base_url('menu/tambahMenu') ?>" class="image-holder__link"></a>
 							</div>
 							<div class="card-body pt-0">
 								<h5 class="card-title mb-3">Tambah Menu</h5>

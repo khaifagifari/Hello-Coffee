@@ -17,16 +17,21 @@ class Akun extends CI_Controller{
 
 	public function editAkun(){
 		$this->load->model('Users_model');
-		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('nama', 'Nama', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
+		$this->form_validation->set_rules('gender', 'Gender', 'required');
 		if ($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('templates/header');
+			if($_SESSION['id_toko']!=0){
+				$this->load->view('templates/header_toko');
+			}else{
+				$this->load->view('templates/header');
+			}
 			$this->load->view('home/edit_akun');
 			$this->load->view('templates/footer');
 		}else{
 			$data = [
-				"username" => $this->input->post('username',true),
+				"nama" => $this->input->post('nama',true),
 				"email" => $this->input->post('email',true),
 				"gender" => $this->input->post('gender',true),
 			];
@@ -74,7 +79,11 @@ class Akun extends CI_Controller{
 		
 		$this->load->model('Users_model');
 		$data['users'] = $this->Users_model->getUserById($id_user);
-		$this->load->view('templates/header');
+		if($_SESSION['id_toko']!=0){
+			$this->load->view('templates/header_toko');
+		}else{
+			$this->load->view('templates/header');
+		}
 		$this->load->view('home/akun', $data);
 		$this->load->view('templates/footer');
 	}

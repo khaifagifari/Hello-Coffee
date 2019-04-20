@@ -46,7 +46,7 @@
                                     <label>Name</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label><?php echo $user['username']; ?></label>
+                                    <label><?php echo $user['nama']; ?></label>
                                 </div>
                             </div>
                             <div class="row">

@@ -19,12 +19,9 @@
 					<div class="col-12 col-md-6 col-lg-4">
 						<form method="post" action="" method="post" accept-charset="utf-8">
 							<article class="card-wrapper text-dark text-center">
-
-								<div class="image-holder">	<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
-
-									<div class="image-liquid image-holder--original"
-									style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
-								</div>
+							<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
+								<div class="image-liquid image-holder--original"
+								style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
 							</div>
 							<div class="product-description">
 								<!-- title -->
