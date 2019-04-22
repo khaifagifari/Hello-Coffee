@@ -7,7 +7,6 @@ class Akun extends CI_Controller{
 		$this->load->model('komentar_model');
 		$this->load->model('kopi_model');
 		$this->load->model('toko_model');
-
 		$this->load->library('form_validation');
 	}
 

@@ -69,5 +69,13 @@ class menu extends CI_Controller{
 			redirect('timeline/toko');
 		}
 	}
+
+	public function daftarMenu(){
+		$data['menu'] = $this->kopi_model->getKopi();
+		$data['label'] = "Daftar Menu";
+		$this->load->view('templates/header');
+		$this->load->view('home/menu', $data);
+		$this->load->view('templates/footer');
+	}
 }
 ?>
