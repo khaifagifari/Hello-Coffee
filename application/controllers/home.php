@@ -25,8 +25,7 @@ class home extends CI_Controller {
 			if (($this->input->post('email')) and ($this->input->post('password'))){
 				$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
 				if($row == 1){
-
-					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
+					$data = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->result_array();
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['id_user'] = $data[0]['id_user'];
 					$_SESSION['id_toko'] = $data[0]['id_toko'];
