@@ -1,4 +1,6 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <head>
 	<title><?= $judul; ?></title>
 	<meta charset="utf-8">
@@ -50,43 +52,35 @@
 			</nav>
 		</div>
 	</header>
-
 	<div class="jumbotron text-white" style="background-image: url('https://images.unsplash.com/photo-1545086421-168708d4f603?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1791&q=80'); height: 700px; width: 100%">
 		<div class="container">
-			<h1>Konfirmasi Check Out</h1>   
-			<h6>Total Belanja:</h4>
-			<br>
-		
-			<form class="form-horizontal" action="#" method="post" name="frmCO" id="frmCO">
-        <div class="form-group  has-success has-feedback">
-            <label class="control-label col-xs-3" for="inputEmail">Email:</label>
-            <div class="col-xs-9">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
-            </div>
-        </div>
-        <div class="form-group  has-success has-feedback">
-            <label class="control-label col-xs-3" for="firstName">Nama :</label>
-            <div class="col-xs-9">
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Lengkap">
-            </div>
-        </div>
-        <div class="form-group  has-success has-feedback">
-            <label class="control-label col-xs-3" for="lastName">Alamat:</label>
-            <div class="col-xs-9">
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat">
-            </div>
-        </div>
-        <div class="form-group  has-success has-feedback">
-            <label class="control-label col-xs-3" for="phoneNumber">Telp:</label>
-            <div class="col-xs-9">
-                <input type="tel" class="form-control" name="telp" id="telp" placeholder="No Telp">
-            </div>
-        </div>
-        
-        <div class="form-group  has-success has-feedback">
-            <div class="col-xs-offset-3 col-xs-9">
-                <button type="submit" class="btn btn-primary">Proses Order</button>
-            </div>
-        </div>
-    </form> 
-	</body>
+			<h1>DAFTAR BELANJA</h1>      
+			<table class="table">
+ 				 <thead class="thead-dark">
+   					 <tr>
+      						<th  width="2%" scope="col">No</th>
+      						<th width="10%" scope="col">Gambar</th>
+      						<th width="33%" scope="col">Item</th>
+      						<th width="17%" scope="col">Harga</th>
+      						<th width="8%" scope="col">Qty</th>
+     						 <th width="20%" scope="col">Jumlah</th>
+     						 <th width="17%" scope="col">Harga</th>
+      						<th width="10%" scope="col">Hapus</th>
+    				</tr>
+    			
+
+    				<tr>
+					<td colspan="4" align="right">
+					<a data-toggle="modal" data-target="#myModal"  class ='btn btn-sm btn-danger'>Kosongkan Cart</a>
+					<button class='btn btn-sm btn-success'  type="submit">Update Cart</button>
+					<a href="<?= base_url() ?>Timeline/checkout/"  class ='btn btn-sm btn-primary'>Check Out</a>
+					</tr>
+
+    			</thead>
+	  
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>

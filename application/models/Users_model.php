@@ -9,27 +9,25 @@ class Users_model extends CI_Model{
 	public function getAllUser(){
 		return $this->db->get('user')->result_array();
 	}
-	public function getUserById($id_user){
-		$this->db->from('user');
-		$this->db->where('id_user',$id_user);
-        return $this->db->get()->result_array();
-        //return as object array
-	}
 
 	public function tambahUser(){
 		$gender = $this->input->post('gender', true);
+		if($gender = 'Laki-laki'){
+			$gender = 'L';
+		}else{
+			$gender = 'P';
+		}
 		$data = [
 			"username" => $this->input->post('username', true),
-			"password" => md5($this->input->post('password', true)),
+			"password" => $this->input->post('password', true),
 			"email" => $this->input->post('email', true),
 			"gender" => $gender,
-			"nama" => $this->input->post('nama',true),
 		];
 		return $this->db->insert('user', $data);
 	}
 
-	public function deleteUser($id_user){
-		$this->db->where('id_user',$id_user);
+	public function deleteUser($username){
+		$this->db->where('username',$username);
 		return $this->db->delete('user');
 	}
 
@@ -47,11 +45,15 @@ class Users_model extends CI_Model{
 		return $this->db->get();
 	}
 
-	public function editUser($id_user,$data){
-		$this->db->where('id_user',$id_user);
+
+	public function editUser($username,$data){
+		$this->db->where('username',$username);
 		return $this->db->update('user',$data);
 	}
 }
 ?>
 
+}
+
+ ?>
 

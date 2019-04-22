@@ -1,14 +1,14 @@
 <?php 
-
 class home extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('Users_model');
+		$this->load->model('Registrasi_toko');
+
 		$this->load->model('komentar_model');
-		$this->load->model('kopi_model');
-		$this->load->model('toko_model');
+		$this->load->model('menu_model');
 
 		$this->load->library('form_validation');
 	}
@@ -18,47 +18,84 @@ class home extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() == FALSE)
-		{
-			$this->load->view('home/index');
-		}
+        {
+        	$this->load->view('templates/header');
+                $this->load->view('home/index');
+        }
 		else{
 			if (($this->input->post('email')) and ($this->input->post('password'))){
-				$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
+				$row = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->num_rows();
 				if($row == 1){
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->result_array();
 					$_SESSION['username'] = $data[0]['username'];
 					$_SESSION['id_user'] = $data[0]['id_user'];
-					$_SESSION['id_toko'] = $data[0]['id_toko'];
-					$_SESSION['gender'] = $data[0]['gender'];
-					$_SESSION['email'] = $data[0]['email'];
-					$_SESSION['nama'] = $data[0]['nama'];
+					//$_SESSION['id_toko'] = $data[0]['id_toko']; untuk toko nanti
 
-					if($data[0]['id_toko'] != 0){
-						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
-						$this->load->view('templates/header_toko');
-						$this->load->view('home/timeline_toko',$data);
-						$this->load->view('templates/footer');
-					}else{
-						$data['toko'] = $this->toko_model->getToko();
+					$_SESSION['username'] = $this->input->post('email');
 
-						$this->load->view('templates/header');
-						$this->load->view('home/table',$data);
-						$this->load->view('templates/footer');
-					}
-
-					
+					$this->load->view('templates/header');
+					$this->load->view('home/table');
 				}else{
+					$this->load->view('templates/header');
 					$this->load->view('home/index');
 				}
 			}
 		}
+	}	
+	
+    public function toko(){
+        $this->load->view('home/toko');
+    }
+
+    function aksi(){
+		$nama_toko = $this->input->post('nama_toko');
+		$alamat = $this->input->post('alamat');
+		$notelp = $this->input->post('notelp');
+		$id_user = $this->input->post(5);
+		$validasi_toko = $this->db->where('nama_toko', $nama_toko)->limit(1)->get('daftar_toko');
+		if($validasi_toko->num_rows() > 0)
+			{
+				?>
+				<script type="text/javascript">
+					alert("Nama toko sudah tersedia");
+					window.location.replace('toko');
+				</script>
+				<?php
+
+			}
+			else if($nama_toko == "" OR $alamat == "" OR $notelp == "")
+			{
+				?>
+				<script type="text/javascript">
+					alert("Isi form dengan lengkap");
+					window.location.replace('toko');
+				</script>
+				<?php
+
+			} 
+		else {
+		$data = array(
+			'nama_toko' => $nama_toko,
+			'alamat' => $alamat,
+			'notelp' => $notelp,
+			'id_user' => 5
+			);
+        $this->Registrasi_toko->input_data($data,'daftar_toko');
+        ?>
+				<script type="text/javascript">
+					alert("Input berhasil");
+					window.location.replace('toko');
+				</script>
+				<?php
+    }
 	}
+
 
 	public function hapus($username){
 		$this->Users_model->deleteUser($username);
 
 		// $this->load->view('templates/header');
-		$message = "akun berhasil dihapus";
+		 $message = "akun berhasil dihapus";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		redirect('/home', 'refresh');
 	}
@@ -66,6 +103,8 @@ class home extends CI_Controller {
 	public function indexToko(){
 		$this->load->view('home/homeToko');
 	}
+
+
 
 	public function editUser($username){
 		$data = [
@@ -83,6 +122,7 @@ class home extends CI_Controller {
 			"bintang" => $this->input->post('bintang'),
 			"id_user" => $_SESSION['id_user'],
 		];
+	
 		$this->komentar_model->tambahKomentar($data);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
 	}
@@ -142,26 +182,16 @@ class home extends CI_Controller {
 	}
 
 	public function deleteMenu($id){
-		$this->komentar_model->deleteMenu($id);
+		/*$this->komentar_model->deleteMenu($id);
 		//redirect('/index.php/web/mahasiswa', 'refresh');
-		
+	}
 
 		// $this->load->view('templates/header');
-		$message = "akun berhasil dihapus";
+		 $message = "akun berhasil dihapus";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		redirect('home');
-		// $this->index();
+		// $this->index();*/
 	}
 
-	public function getKopi(){
-		$data['kopi'] = $this->kopi_model->getKopi();
-		$this->load->view('home/table', $data);
-	}
-
-	public function logout(){
-		session_start();
-		session_destroy();
-		redirect('home');
-	}
 }
 ?>
