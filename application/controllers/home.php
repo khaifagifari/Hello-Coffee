@@ -23,7 +23,7 @@ class home extends CI_Controller {
 		}
 		else{
 			if (($this->input->post('email')) and ($this->input->post('password'))){
-				$row = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->num_rows();
+				$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
 				if($row == 1){
 
 					$data = $this->Users_model->cariDataUser($this->input->post('email'),$this->input->post('password'))->result_array();
@@ -32,22 +32,20 @@ class home extends CI_Controller {
 					$_SESSION['id_toko'] = $data[0]['id_toko'];
 					$_SESSION['gender'] = $data[0]['gender'];
 					$_SESSION['email'] = $data[0]['email'];
+					$_SESSION['nama'] = $data[0]['nama'];
 
 					if($data[0]['id_toko'] != 0){
 						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
-						$this->load->view('templates/header');
+						$this->load->view('templates/header_toko');
 						$this->load->view('home/timeline_toko',$data);
 						$this->load->view('templates/footer');
 					}else{
-						$_SESSION['username'] = $this->input->post('email');
 						$data['toko'] = $this->toko_model->getToko();
 
 						$this->load->view('templates/header');
 						$this->load->view('home/table',$data);
 						$this->load->view('templates/footer');
 					}
-
-					
 				}else{
 					$this->load->view('home/index');
 				}
