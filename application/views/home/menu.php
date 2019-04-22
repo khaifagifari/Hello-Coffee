@@ -1,6 +1,11 @@
+<div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.unsplash.com/uploads/1412198485051133af17f/5049dacb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); height: 650px; width: 100%;">
+	<div class="container">
+		<h1 class="mt-5 pt-5">Our Menus</h1>      
+		<p>Get ur favourite coffee here</p>
+	</div>
+</div>
 
-
-<section style="min-height: 920px;" id="menu" class="pt-3">
+<section style="min-height: 920px;" id="menu" class="">
 	<div class="container-fluid text-center text-capitalize">
 		<h2 class="mt-5 pt-lg-4"> <?php echo $label; ?></h2>  
 			<h5 class="mb-4">Data Menu</h5>
