@@ -6,7 +6,7 @@
 	</div>
 </div>
 
-
+<?php $i = 0; ?>
 <section style="min-height: 920px;" id="menu" class="pt-3">
 	<div class="container-fluid text-center text-capitalize">
 		<h2 class="mt-5 pt-lg-4"> TOKO KOPI</h2>  
@@ -14,18 +14,14 @@
 		<div class="container">
 			<div class="row">
 				<!-- COFFEE CARD -->
-				<?php define('i', 0);?>
 				<?php foreach ($toko as $data) : ?>
-					<?php if(i <= 2): ?>
+					<?php if($i <= 2): ?>
 					<div class="col-12 col-md-6 col-lg-4">
 						<form method="post" action="" method="post" accept-charset="utf-8">
 							<article class="card-wrapper text-dark text-center">
-
-								<div class="image-holder">	<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
-
-									<div class="image-liquid image-holder--original"
-									style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
-								</div>
+							<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
+								<div class="image-liquid image-holder--original"
+								style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
 							</div>
 							<div class="product-description">
 								<!-- title -->
@@ -42,7 +38,9 @@
 						</article>
 					</form>
 				</div>
+				<?php $i++; ?>
 				<?php endif; ?>
+				<?php if($i == 3) break; ?>
 			<?php endforeach; ?>
 			<!-- end COFFEE CARD -->
 		</div>
