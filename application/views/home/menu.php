@@ -1,52 +1,47 @@
-	
-<div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.wallpaperscraft.com/image/coffee_book_windowsill_130911_1920x1080.jpg'); height: 650px; width: 100%;">
+<div class="jumbotron text-white rounded-0 " style="background-image: url('https://images.unsplash.com/uploads/1412198485051133af17f/5049dacb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); height: 650px; width: 100%;">
 	<div class="container">
-		<h1 class="mt-5 pt-5">Hello Coffee</h1>      
-		<p>A bad day with coffee is better than a good day without it</p>
+		<h1 class="mt-5 pt-5">Our Menus</h1>      
+		<p>Get ur favourite coffee here</p>
 	</div>
 </div>
 
-<?php $i = 0; ?>
-<section style="min-height: 920px;" id="menu" class="pt-3">
+<section style="min-height: 920px;" id="menu" class="">
 	<div class="container-fluid text-center text-capitalize">
-		<h2 class="mt-5 pt-lg-4"> TOKO KOPI</h2>  
-		<h5 class="mb-4">You can choose anything u want</h5>
-		<div class="container">
-			<div class="row">
-				<!-- COFFEE CARD -->
-				<?php foreach ($toko as $data) : ?>
-					<?php if($i <= 2): ?>
-					<div class="col-12 col-md-6 col-lg-4">
-						<form method="post" action="" method="post" accept-charset="utf-8">
-							<article class="card-wrapper text-dark text-center">
-							<a href="<?php echo base_url('Detail_toko/') ?>" class="image-holder__link"></a>
-								<div class="image-liquid image-holder--original"
-								style="background-image: url('<?php echo base_url('assets/img/').$data['foto'];?>')">
-							</div>
-							<div class="product-description">
-								<!-- title -->
-								<div class="card-body pt-2 pb-2">
-									<h5 class="card-title mb-3"><?php echo $data['nama_toko'] ?></h5>
-									<hr class="mb-2 mt-0">
-									<p class="card-text"><?php echo $data['alamat'] ?></p>
-								</div>
-								<a href="<?php ?>" class="btn btn-primary float-right ">Detail</a>	
-								<input type="hidden" name="id_toko" value="<?php echo $data['id_toko']; ?>" />
-								<input type="hidden" name="nama_toko" value="<?php echo $data['nama_toko']; ?>" />
-								<input type="hidden" name="alamat" value="<?php echo $data['alamat']; ?>" />
-							</div>
-						</article>
-					</form>
-				</div>
-				<?php $i++; ?>
-				<?php endif; ?>
-				<?php if($i == 3) break; ?>
-			<?php endforeach; ?>
-			<!-- end COFFEE CARD -->
+		<h2 class="mt-5 pt-lg-4"> <?php echo $label; ?></h2>  
+			<h5 class="mb-4">Data Menu</h5>
+			<div class="container">
+				<div class="row">
+					<!-- COFFEE CARD -->
+					<?php foreach ($menu as $kopi) : ?>
+						<div class="col-12 col-md-6 col-lg-4">
+							<form method="post" action="" method="post" accept-charset="utf-8">
+								<article class="card-wrapper text-dark text-center">
+
+										<!-- <div class="image-holder">	 -->
+											<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+
+											<div class="image-liquid image-holder--original"
+											style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+										<!-- </div> -->
+									</div>
+									<div class="product-description">
+										<!-- title -->
+										<div class="card-body pt-2 pb-2">
+											<h5 class="card-title mb-3"><?php echo $kopi['nama_menu'] ?></h5>
+											<hr class="mb-2 mt-0">
+											<p class="card-text">Harga = <?php echo $kopi['harga'] ?></p>
+											<p class="card-text">Jenis = <?php echo $kopi['jenis'] ?></p>
+										</div>
+										<a href="<?php echo base_url('Detail_produk/detail/'); echo $kopi['id_menu']; ?>" class="btn btn-success float-right font-weight-bold">Detail</a>
+									</div>
+							</article>
+						</form>
+					</div>
+				<?php endforeach; ?>
+				<!-- end COFFEE CARD -->
+			</div>
 		</div>
 	</div>
-</div>
-
 </section>
 
 <!-- this is for carousel -->

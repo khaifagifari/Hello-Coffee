@@ -1,54 +1,22 @@
 <footer class="footer">
-      <table width="100%" >  
-            <th></th>
-            <th> 
-            <a href="<?php echo base_url('About/') ?>">About</a><br>
-            <a href="<?php echo base_url('FAQ/') ?>">FAQ</a>
-            </th>
-            <th>  
-                  <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link " href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
-                  <div class="h4 title text-center">Hello Coffee</div>
-                  <div class="text-center text-muted">
-                  <p>&copy; Hello coffee. All rights reserved.</p>
+
+                        <div class="container text-center"><a class="cc-facebook btn btn-link" href="#"><i class="fa fa-facebook fa-2x " aria-hidden="true"></i></a><a class="cc-twitter btn btn-link" href="#"><i class="fa fa-twitter fa-2x " aria-hidden="true"></i></a><a class="cc-google-plus btn btn-link" href="#"><i class="fa fa-google-plus fa-2x" aria-hidden="true"></i></a><a class="cc-instagram btn btn-link" href="#"><i class="fa fa-instagram fa-2x " aria-hidden="true"></i></a></div>
+                        <div class="h4 title text-center">Hello Coffee</div>
+                  <div align="center">
+                  <table>
+                  <tr>
+                        <td><div class="h6 title text-center"><a href="<?php echo base_url('About/') ?>">About</a></div></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><div class="h6 title text-center"><a href="<?php echo base_url('FAQ/') ?>">FAQ</a></div></td>
+                  </tr>
+                  </table>
                   </div>
-            </th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-      </table>
+                  <div class="text-center text-muted">
+                  <p>&copy;2017.</p>
+                  </div>
+            
 </footer>
 
 <!-- Optional JavaScript -->

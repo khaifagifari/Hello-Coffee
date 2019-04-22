@@ -6,7 +6,12 @@ class komentar_model extends CI_Model{
 	}
 
 	public function getAllKomentar(){
-		return $this->db->get('komentar');
+		return $this->db->get('komentar')->result_array();
+
+	}
+	public function getKomentarById($id_menu){
+	$query = $this->db->query("SELECT * FROM komentar where id_menu='$id_menu'");
+	return $query->result_array();
 	}
 
 

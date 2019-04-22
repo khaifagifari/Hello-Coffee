@@ -19,16 +19,19 @@
 								<input type="text" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
 								<label for="inputEmail">Email address</label>
 							</div>
-
+							<div class="form-label-group">
+								<input type="text" id="inputNama" class="form-control" placeholder="Nama" name="nama" required autofocus>
+								<label for="inputNama">Nama</label>
+							</div>
 							<div class="row"> 
 								<label class="label mr-5 ml-4">Gender :</label>
 
 								<div class="custom-control custom-radio custom-control-inline ml-5 mb-3">
-									<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="Laki-laki">
+									<input type="radio" class="custom-control-input" id="customRadio" name="gender" value="laki-laki">
 									<label class="custom-control-label" for="customRadio">Laki-laki</label>
 								</div>
 								<div class="custom-control custom-radio custom-control-inline">
-									<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="Perempuan" required="">
+									<input type="radio" class="custom-control-input" id="customRadio2" name="gender" value="perempuan" required="">
 									<label class="custom-control-label" for="customRadio2">Perempuan</label>
 								</div>  
 

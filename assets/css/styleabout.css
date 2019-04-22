@@ -1,25 +1,55 @@
 body{
-	background:url('https://images.pexels.com/photos/585750/pexels-photo-585750.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
-	height: 100%;
-  	background-repeat: no-repeat;
-  	background-size: cover;
-  	display: block;
+	background:#333333 url(images/page-bg.jpg);
+	margin:0px;
+	font: 400 12px/22px 'Open Sans', Verdana, Helvetica, sans-serif;
 }
-h2{font: 400 58px/60px 'Bree Serif', Georgia, serif; color:#6a6969;}
-h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
+h1{font: 400 58px/60px 'Bree Serif', Georgia, serif; color:#6a6969;}
+h2{font: 400 18px/22px 'Bree Serif', Georgia, serif; color:#6a6969;}
+h3{font: 400 14px/16px 'Bree Serif', Georgia, serif; color:#6a6969;}
+ul{margin:0px; padding:0px;}
+a {text-decoration:none; color:#6a6969;}
+a:hover {color:#979797;}
+a img{border:0px;}
 
 #container{
 	width:950px;
 	margin:0px auto 300px auto;
+	background:url(images/body-bg.png);
 	overflow:auto;
 	padding-bottom:100px;
+}
+
+/****************************************************/
+/* HEADER */
+/****************************************************/
+
+#header{
+	width:864px;
+	height:115px;
+	background-color:#222222;
+	padding:0px 43px;
+	position: fixed;
+	top:0px;
+	left:50%;
+	margin: 0 0 0 -475px;
+}
+#header #logo{
+	padding-top:40px;
+	float:left;
+}
+#header #main-menu{float:right; padding-top:45px;}
+#header #main-menu li{
+	float:left;
+	list-style:none;
+	margin-left:27px;
+	font: 400 16px/20px 'Bree Serif', Georgia, serif;
 }
 
 /****************************************************/
 /* ABOUT SECTION */
 /****************************************************/
 
-#about{margin:43px 43px; padding-top:120px;}
+#about{margin:0px 43px; padding-top:115px;}
 #about h1{float:left;}
 #about #top-social{float:right; padding-top:62px;}
 #about #top-social li{float:left; list-style:none; margin-left:10px;}
@@ -56,6 +86,37 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 	float:left;
 	margin-right:20px;
 }
+#about .content #service-icons li.services-design{background:url(images/icon-1.png) no-repeat;}
+#about .content #service-icons li.services-mobile{background:url(images/icon-2.png) no-repeat;}
+#about .content #service-icons li.services-film{background:url(images/icon-3.png) no-repeat;}
+#about .content #service-icons li.services-photo{background:url(images/icon-4.png) no-repeat;}
+
+/****************************************************/
+/* EXPERIENCE SECTION */
+/****************************************************/
+
+#experience{margin:0px 43px; padding-top:115px;}
+#experience .col{
+	width:235px;
+	float:left;
+}
+#experience .content{overflow:auto;}
+#experience .col-mid{margin:0px 65px;}
+
+/****************************************************/
+/* WORK SECTION */
+/****************************************************/
+
+#work{margin:0px 43px; padding-top:115px;}
+#work .content{overflow:auto;}
+#work #work-thumbs li{
+	list-style:none;
+	float:left;
+	margin:0px 20px 15px 0px;
+	padding:0px;
+}
+#work #work-thumbs li.last{margin:0px;}
+
 /****************************************************/
 /* CONNECT SECTION */
 /****************************************************/
@@ -66,12 +127,11 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 	float:left;
 }
 #connect #form span{
-	color: black;
 	display:block;
 	float:left;
 	width:100px;
 	padding-top:5px;
-	font: 400 16px/18px 'Bree Serif', Georgia, serif;
+	font: 400 14px/16px 'Bree Serif', Georgia, serif;
 }
 #connect #form input{
 	float:left;
@@ -92,6 +152,9 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 	color:#3b3b3b;
 }
 
+#connect #form input.name{background:#222222 url(images/icon-user.png) no-repeat 10px 8px;}
+#connect #form input.email{background:#222222 url(images/icon-mail.png) no-repeat 10px 9px;}
+#connect #form textarea.message{background:#222222 url(images/icon-message.png) no-repeat 10px 8px;}
 #connect #form input.submit{ 
 	width:75px;   
 	height:30px;
@@ -99,7 +162,7 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 	padding:0px 0px 5px 0px;
 	margin:10px 16px 0px 0px;
 	background:#222222;
-	color:white;
+	color:#3b3b3b;
 	font: 400 14px/16px 'Bree Serif', Georgia, serif;
 }
 
@@ -120,6 +183,13 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 	height:26px;
 	margin-right:10px;
 }
+#connect #social-footer #sm-links li a.facebook{background:url(images/sm-facebook-icon.png) no-repeat;}
+#connect #social-footer #sm-links li a.twitter{background:url(images/sm-twitter-icon.png) no-repeat; width:31px;}
+#connect #social-footer #sm-links li a.dribble{background:url(images/sm-dribble-icon.png) no-repeat;}
+#connect #social-footer #sm-links li a.vimeo{background:url(images/sm-vimeo-icon.png) no-repeat; width:27px;}
+#connect #social-footer #sm-links li a.google{background:url(images/sm-google-icon.png) no-repeat;}
+#connect #social-footer #sm-links li a.youtube{background:url(images/sm-youtube-icon.png) no-repeat; width:28px;}
+#connect #social-footer #sm-links li a.linkedin{background:url(images/sm-linkedin-icon.png) no-repeat;}
 
 /****************************************************/
 /* MISC */
@@ -127,5 +197,8 @@ h6{font: 20px 'Bree Serif', Georgia, serif; color:white;}
 .top-divider, .bottom-divider{
 	width:100%;
 	height:9px;
+	background:url(images/divider.png) repeat-x;
 	clear:both;
 }
+.top-divider{margin-bottom:40px;}
+.bottom-divider{margin-top:40px;}

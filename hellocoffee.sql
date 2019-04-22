@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Apr 2019 pada 13.22
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.2.12
+-- Generation Time: Apr 22, 2019 at 11:24 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,131 +25,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `daftar_toko`
---
-
-CREATE TABLE `daftar_toko` (
-  `id_toko` int(8) NOT NULL,
-  `nama_toko` varchar(32) NOT NULL,
-  `alamat` varchar(128) NOT NULL,
-  `id_user` int(8) NOT NULL,
-  `foto` varchar(128) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `daftar_toko`
---
-
-INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`, `foto`) VALUES
-(1, 'Kopi Tungku', 'Bandung, bojongsoang', 5, 'tungku.jpg');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `komentar`
+-- Table structure for table `komentar`
 --
 
 CREATE TABLE `komentar` (
   `id_komentar` int(11) NOT NULL,
-  `komentar` varchar(256) NOT NULL,
-  `bintang` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `menu`
---
-
-CREATE TABLE `menu` (
-  `id_menu` int(8) NOT NULL,
-  `nama_menu` varchar(64) NOT NULL,
-  `harga` int(16) NOT NULL,
-  `deskripsi` varchar(256) NOT NULL,
-  `jenis` varchar(32) NOT NULL,
-  `foto` varchar(32) NOT NULL,
-  `id_toko` int(8) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `menu`
---
-
-INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `deskripsi`, `jenis`, `foto`, `id_toko`) VALUES
-(1, 'Kopi Capucino', 10000, 'Kopi yang pantas buat kamu yang manis', 'Capucino', 'coffee1.jpg', 1),
-(2, 'Kopi Espreso', 15000, 'Espresso merupakan kopi modern yang paling kuat kadar kopinya (very strong). Espresso merupakan ekstrak biji kopi murni tanpa campuran. Rasanya sudah pasti pahit, dengan tingkat kekentalannya tergantung dari biji kopi yang digunakan. Espresso biasa dikonsu', 'Espreso', 'Coffee4.jpg', 1),
-(3, 'Kopi Macchiato', 20000, 'Macchiato merupakan espresso yang diberi campuran susu foam. Foam atau susu yang di-steam sendiri kadarnya sedikit, sehingga rasanya tetap strong.', 'Macchiato', 'Coffee1.jpg', 1);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `user`
---
-
-CREATE TABLE `user` (
+  `nama_komentar` varchar(64) NOT NULL,
+  `isi_komentar` varchar(256) NOT NULL,
   `id_user` int(11) NOT NULL,
-  `username` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `email` varchar(128) NOT NULL,
-  `gender` varchar(128) NOT NULL,
-  `id_toko` int(8) NOT NULL
+  `id_menu` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `komentar`
 --
 
-INSERT INTO `user` (`id_user`, `username`, `password`, `email`, `gender`, `id_toko`) VALUES
-(1, 'Faris', 'faris', 'faris@gmail.com', 'L', 0),
-(2, 'Ihsan', 'ihsan', 'ihsan@gmail.com', 'L', 0),
-(3, 'Kekey', 'kekey', 'kekey@gmail.com', 'L', 0),
-(4, 'Putra', 'putra', 'putra@gmail.com', 'L', 0),
-(5, 'toko', 'toko', 'toko@gmail.com', 'L', 1);
+INSERT INTO `komentar` (`id_komentar`, `nama_komentar`, `isi_komentar`, `id_user`, `id_menu`) VALUES
+(1, 'adam', 'adam', 5, 1),
+(4, 'khaifa', 'kopi ku', 4, 4),
+(5, 'Rizky', 'hello coffee, website impianku', 4, 2),
+(6, 'abi', 'bisa mesan mas?', 4, 3);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `daftar_toko`
---
-ALTER TABLE `daftar_toko`
-  ADD PRIMARY KEY (`id_toko`);
-
---
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
-  ADD PRIMARY KEY (`id_komentar`);
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `fk_menu` (`id_menu`);
 
 --
--- Indeks untuk tabel `menu`
---
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
-
---
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `daftar_toko`
+-- AUTO_INCREMENT for table `komentar`
 --
-ALTER TABLE `daftar_toko`
-  MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `komentar`
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- Constraints for dumped tables
 --
-ALTER TABLE `menu`
-  MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for table `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `fk_menu` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE NO ACTION ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
