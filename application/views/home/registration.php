@@ -19,7 +19,10 @@
 								<input type="text" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
 								<label for="inputEmail">Email address</label>
 							</div>
-
+							<div class="form-label-group">
+								<input type="text" id="inputNama" class="form-control" placeholder="Nama" name="nama" required autofocus>
+								<label for="inputNama">Nama</label>
+							</div>
 							<div class="row"> 
 								<label class="label mr-5 ml-4">Gender :</label>
 
@@ -37,7 +40,7 @@
 							<!-- <a href="<?= base_url(); ?>Timeline" class="btn btn-lg btn-primary btn-block text-uppercase ">Sign in</a> -->
 							
 							<p class="mt-4 text-center">sudah punya akun?</p>
-							<a class="btn btn-lg btn-danger btn-block text-uppercase" href="<?= base_url(); ?>home" type="submit" name="login">Sign in</a>
+							<a class="btn btn-lg btn-danger btn-block text-uppercase" href="<?= base_url(); ?>home" name="login">Sign in</a>
 						</form>
 					</div>
 				</div>

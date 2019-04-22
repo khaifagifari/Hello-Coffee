@@ -1,7 +1,7 @@
 body {
   font-family: Arial;
   font-size: 17px;
-  padding: 8px;
+ 
 }
 h2{
 text-align:left;
@@ -51,7 +51,7 @@ text-align:left;
   background-color: #615B5B;
   padding: 3px 18px 13px 18px;
   border: 1px solid lightgrey;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 input[type=text] {
