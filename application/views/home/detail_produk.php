@@ -55,8 +55,8 @@ height: 100%;">
 						</div>
 					</div>
 					<hr>
-					<a href="<?php echo base_url('Timeline/index') ?>" class="btn btn btn-primary text-uppercase mt-3"> Buy now </a>
-					<a href="#" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </a>
+					<a href="<?php echo base_url('shopping/checkout/') ?>" class="btn btn btn-primary text-uppercase mt-3"> Buy now </a>
+					<a href="<?php echo base_url('shopping/Keranjang/') ?>" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </a>
 				</article> <!-- card-body.// -->
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->

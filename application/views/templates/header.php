@@ -35,7 +35,7 @@
                <div class="menu text-uppercase">
                   <ul>
                      <li><a href="<?php if($_SESSION['id_toko']!=0){echo base_url('timeline/toko');}else{echo base_url('timeline');} ?>">Home</a></li>
-                     <li><a href="#menu">Menu</a></li>
+                     <li><a href="<?php echo base_url('menu/daftarMenu/') ?>">Menu</a></li>
                      <li><a href="<?php echo base_url('shopping/keranjang')?>">Keranjang</a></li>
                      <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
                      <li><a href="<?php echo base_url('Akun/pengaturanAkun/').($_SESSION['id_user']) ?>">akun</a></li>
