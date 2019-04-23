@@ -92,5 +92,37 @@ class Akun extends CI_Controller{
 		session_destroy();
 		redirect('home');
 	}
+
+	public function editFoto($id_user){
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 30000;
+        $config['max_width']            = 4096;
+        $config['max_height']           = 4096;
+
+      	$temp = $this->Users_model->getUserById($id_user);
+        $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('userfile')){
+            $data = array('error' => $this->upload->display_errors(), 'user' => $temp);
+            $this->load->view('templates/header');
+            $this->load->view('home/edit_foto_akun', $data);
+            $this->load->view('templates/footer');
+        }
+        else{
+           	$img = array('upload_data' => $this->upload->data());
+           	$i = 0;
+           	foreach ($img['upload_data'] as $key => $value) {
+           		if($i == 0){
+           			$data = [
+           				"Foto" => $value,
+           			];
+           			break;
+           		}
+           	}
+
+			$this->Users_model->editUser($id_user,$data);
+			redirect('akun/pengaturanAkun/'.$id_user);
+        }
+	}
 }
  ?>
