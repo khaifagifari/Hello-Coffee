@@ -3,9 +3,15 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+
 -- Waktu pembuatan: 22 Apr 2019 pada 14.57
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
+
+-- Generation Time: Apr 22, 2019 at 11:24 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
+
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,6 +31,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+
 -- Struktur dari tabel `daftar_toko`
 --
 
@@ -50,10 +57,12 @@ INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`, `foto`) 
 
 --
 -- Struktur dari tabel `komentar`
+
 --
 
 CREATE TABLE `komentar` (
   `id_komentar` int(11) NOT NULL,
+
   `komentar` varchar(256) NOT NULL,
   `bintang` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
@@ -99,11 +108,18 @@ CREATE TABLE `user` (
   `email` varchar(128) NOT NULL,
   `gender` varchar(128) NOT NULL,
   `id_toko` int(8) NOT NULL
+
+  `nama_komentar` varchar(64) NOT NULL,
+  `isi_komentar` varchar(256) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_menu` int(8) NOT NULL
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `komentar`
 --
+
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `gender`, `id_toko`) VALUES
 (1, 'faris', '7d77e825b80cff62a72e680c1c81424f', 'faris', 'faris@gmail.com', 'laki-laki', 0),
@@ -112,49 +128,51 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `gender`
 (4, 'mukhtar', 'bc6ed692dd28b4860b19789b59f330b1', 'Putra', 'putra16.mp@gmail.com', 'Laki-laki', 0),
 (5, 'toko', 'bbb48314e5e6ee68d2d8bc1364b8599b', 'toko', 'toko@gmail.com', 'L', 1);
 
+INSERT INTO `komentar` (`id_komentar`, `nama_komentar`, `isi_komentar`, `id_user`, `id_menu`) VALUES
+(1, 'adam', 'adam', 5, 1),
+(4, 'khaifa', 'kopi ku', 4, 4),
+(5, 'Rizky', 'hello coffee, website impianku', 4, 2),
+(6, 'abi', 'bisa mesan mas?', 4, 3);
+
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `daftar_toko`
---
-ALTER TABLE `daftar_toko`
-  ADD PRIMARY KEY (`id_toko`);
-
---
--- Indeks untuk tabel `komentar`
+-- Indexes for table `komentar`
 --
 ALTER TABLE `komentar`
-  ADD PRIMARY KEY (`id_komentar`);
+  ADD PRIMARY KEY (`id_komentar`),
+  ADD KEY `fk_menu` (`id_menu`);
 
 --
--- Indeks untuk tabel `menu`
---
-ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id_menu`);
-
---
--- Indeks untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id_user`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `daftar_toko`
+-- AUTO_INCREMENT for table `komentar`
 --
+ALTER TABLE `komentar`
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
 ALTER TABLE `daftar_toko`
   MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
+
 --
--- AUTO_INCREMENT untuk tabel `menu`
+-- Constraints for table `komentar`
 --
+
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `fk_menu` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

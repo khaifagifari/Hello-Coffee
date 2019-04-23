@@ -24,26 +24,25 @@
 <body>
 
   <div id="navbar" class="wrapper sticky-top">
-         <header>
-            <nav>
-               <div class="menu-icon">
-                  <i class="fa fa-bars fa-2x"></i>
-               </div>
-               <div class="logo">
-                  HELLOCOFFEE
-               </div>
-               <div class="menu text-uppercase">
-                  <ul>
-                     <li><a href="<?php if($_SESSION['id_toko']!=0){echo base_url('timeline/toko');}else{echo base_url('timeline');} ?>">Home</a></li>
-                     <li><a href="<?php echo base_url('menu/daftarMenu/') ?>">Menu</a></li>
-                     <li><a href="<?php echo base_url('shopping/keranjang/'); echo $_SESSION['id_user']?>">Keranjang</a></li>
-                     <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
-                     <li><a href="<?php echo base_url('Akun/pengaturanAkun/').($_SESSION['id_user']) ?>">akun</a></li>
+   <header>
+    <nav>
+     <div class="menu-icon">
+      <i class="fa fa-bars fa-2x"></i>
+    </div>
+    <div class="logo">
+      HELLOCOFFEE
+    </div>
+    <div class="menu text-uppercase">
+      <ul>
+       <li><a href="<?php if($_SESSION['id_toko']!=0){echo base_url('timeline/toko');}else{echo base_url('timeline');} ?>">Home</a></li>
+       <li><a href="<?php echo base_url('menu/daftarMenu/') ?>">Menu</a></li>
+       <li><a href="<?php echo base_url('shopping/keranjang/'); echo $_SESSION['id_user']?>">Keranjang</a></li>
+       <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
+       <li><a href="<?php echo base_url('Akun/pengaturanAkun/').($_SESSION['id_user']) ?>">akun</a></li>
+       <li><a href="<?php echo base_url('Team/') ?>">Team</a><li>
 
-                     <li><a href="<?php echo base_url('Team/') ?>">Team</a><li>
-
-                  </ul>
-               </div>
-            </nav>
-         </header>
-      </div>
+       </ul>
+     </div>
+   </nav>
+ </header>
+</div>

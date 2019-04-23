@@ -33,24 +33,23 @@
         </div>
       </div>
     </div>
-    </section>
+
+  </section>
 
 
-    <script> 
+  <script> 
 
 
-      $('.acc h3').click(function(){
-        $(this).next('.content').slideToggle();
-        $(this).parent().toggleClass('active');
-        $(this).parent().siblings().children('.content').slideUp();
-        $(this).parent().siblings().removeClass('active');
-      });
+    $('.acc h3').click(function(){
+      $(this).next('.content').slideToggle();
+      $(this).parent().toggleClass('active');
+      $(this).parent().siblings().children('.content').slideUp();
+      $(this).parent().siblings().removeClass('active');
+    });
 
-    </script>
+  </script>
 
-   
+</div>
+</body>
+</section>
 
-
-
-     
-    
