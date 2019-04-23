@@ -83,8 +83,8 @@ height: 100%;">
 	<?php foreach ($komentar as $komen): ?>
 		<a href="<?php echo base_url('komentar/daftarKomentar').$kopi['id_menu'] ?>"> </a>
 		<dl class="item-property">
-			<p style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
-			<p style="font-size: 20px;"><?php echo $komen['isi_komentar'] ?> </p>
+			<p class="mt-3 ml-3" style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
+			<p class="mt-3 ml-3" style="font-size: 20px;"><?php echo $komen['isi_komentar'] ?> </p>
 		</dl>
 		<hr>
 	<?php endforeach; ?>
