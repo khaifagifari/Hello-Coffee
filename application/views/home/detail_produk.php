@@ -6,7 +6,6 @@ height: 100%;">
 	<br> 
 	<br> 
 
-
 	<?php foreach ($coffee as $kopi) : {
 		# code...
 	} ?>
@@ -60,10 +59,40 @@ height: 100%;">
 				</article> <!-- card-body.// -->
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
-	</div> <!-- card.// -->
-<?php endforeach; ?>
+	<?php endforeach; ?>
+	<div class="card-header text-center"> <!-- Komentar-->
+		Tambah Komentar
+	</div>
+	<div class="card-body">
+		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar') ?>">
+			<div class="form-label-group">
+				<input type="text" class="form-control" id="nama_komentar" name="nama_komentar">
+				<label for="nama_menu">Nama</label>
+			</div>
+			<div class="form-label-group">
+				<input type="text" name="isi_komentar" id="isi_komentar" class="form-control">
+				<label for="harga">Komentar</label>
+			</div>
+			<button type="submit" name="tambah" class="btn btn-block btn-primary">Tambah Komentar</button>
+		</form>
+	</div> <!-- End komentar -->
 
+	<div class="card-header text-left"> <!-- Komentar-->
+		Semua Komentar
+	</div>
+	<?php foreach ($komentar as $komen): ?>
+		<a href="<?php echo base_url('komentar/daftarKomentar').$kopi['id_menu'] ?>"> </a>
+		<dl class="item-property">
+			<p style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
+			<p style="font-size: 20px;"><?php echo $komen['isi_komentar'] ?> </p>
+		</dl>
+		<hr>
+	<?php endforeach; ?>
+</div> <!-- End komentar -->
+
+</div> <!-- card.// -->
 </div>
+
 <!--container.//-->
 </section>
 

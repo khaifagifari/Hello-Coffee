@@ -78,6 +78,7 @@ class menu extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+
 	public function uploadFoto(){
 		$config['upload_path']          = './assets/img/';
         $config['allowed_types']        = 'gif|jpg|png';
