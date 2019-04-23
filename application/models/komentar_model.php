@@ -1,4 +1,4 @@
-<?php 
+		<?php 
 
 class komentar_model extends CI_Model{
 	public function tambahKomentar($data){

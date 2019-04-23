@@ -42,8 +42,8 @@ class Users_model extends CI_Model{
 	public function cariDataUser($username,$password){
 		$this->db->from('user');
 		$this->db->where('username',$username);
-		$this->db->or_where('email',$username);
 		$this->db->where('password',$password);
+		$this->db->or_where('email',$username);
 		return $this->db->get();
 	}
 

@@ -77,5 +77,33 @@ class menu extends CI_Controller{
 		$this->load->view('home/menu', $data);
 		$this->load->view('templates/footer');
 	}
+
+
+	public function uploadFoto(){
+		$config['upload_path']          = './assets/img/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 30000;
+        $config['max_width']            = 4096;
+        $config['max_height']           = 4096;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('userfile')){
+            $error = array('error' => $this->upload->display_errors());
+            $this->load->view('templates/header');
+            $this->load->view('home/upload_foto_menu', $error);
+            $this->load->view('templates/footer');
+        }
+        else{
+           	$data = array('upload_data' => $this->upload->data());
+           	$i = 0;
+           	foreach ($data['upload_data'] as $key => $value) {
+           		if($i == 0){
+           			echo $value;
+           			break;
+           		}
+           	}
+        }
+	}
 }
 ?>

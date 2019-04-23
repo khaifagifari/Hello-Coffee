@@ -7,8 +7,9 @@ class kopi_model extends CI_Model{
 		return $query->result_array();
 	}
 	public function getKopiById($id_menu){
-		$query = $this->db->query("SELECT * FROM menu WHERE id_menu='$id_menu'");
-        return $query->result_array();
+		$this->db->from('menu');
+		$this->db->where('id_menu',$id_menu);
+        return $this->db->get();
         //return as object array
 	}
 

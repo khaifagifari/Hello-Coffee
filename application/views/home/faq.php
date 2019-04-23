@@ -32,21 +32,24 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-
-    <script> 
-
-
-      $('.acc h3').click(function(){
-        $(this).next('.content').slideToggle();
-        $(this).parent().toggleClass('active');
-        $(this).parent().siblings().children('.content').slideUp();
-        $(this).parent().siblings().removeClass('active');
-      });
-
-    </script>
-
-        </div>
-    </body>
   </section>
+
+
+  <script> 
+
+
+    $('.acc h3').click(function(){
+      $(this).next('.content').slideToggle();
+      $(this).parent().toggleClass('active');
+      $(this).parent().siblings().children('.content').slideUp();
+      $(this).parent().siblings().removeClass('active');
+    });
+
+  </script>
+
+</div>
+</body>
+</section>
+
