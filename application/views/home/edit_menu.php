@@ -27,7 +27,6 @@
 						<small class="form-text text-danger"><?= form_error('jenis') ?></small>
 					</div>
 					<button type="submit" class="btn btn-block btn-primary" onclick="return confirm('Apakah data yang dimasukan sudah benar?')";">Edit Menu</button>
-					<a href="<?php echo base_url('menu/editFoto/'); echo $_SESSION['id_menu']; ?>" class="btn btn-block btn-secondary">Edit Foto</a>
 					<a href="<?php echo base_url('timeline/toko') ?>" class="btn btn-block btn-danger pt-3" onclick="return confirm('Apakah anda serius? Data yang telah anda masukan akan hilang!');">Kembali</a>
 				</form>
 			</div>

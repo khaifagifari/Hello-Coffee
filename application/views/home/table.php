@@ -30,7 +30,7 @@
 									<hr class="mb-2 mt-0">
 									<p class="card-text"><?php echo $data['alamat'] ?></p>
 								</div>
-								<a href="<?php ?>" class="btn btn-primary float-right ">Detail</a>	
+								<a href="<?php echo base_url('detail_toko/detail/').$data['id_toko'] ?>" class="btn btn-primary float-right ">Detail</a>	
 								<input type="hidden" name="id_toko" value="<?php echo $data['id_toko']; ?>" />
 								<input type="hidden" name="nama_toko" value="<?php echo $data['nama_toko']; ?>" />
 								<input type="hidden" name="alamat" value="<?php echo $data['alamat']; ?>" />

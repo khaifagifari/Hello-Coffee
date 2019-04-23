@@ -9,7 +9,7 @@
 				<?php echo form_open_multipart('menu/uploadFoto');?>
 			    <input class="btn" type="file" name="userfile" size="20"/>
 			    <br/><br/>
-			    <button type="submit" class="btn btn-primary float-right text-light" value="upload" href="<?php echo base_url('menu/uploadFoto/') ?>"/>Upload</button>
+			    <button type="submit" class="btn btn-primary float-right text-light" value="upload" href="<?php echo base_url('menu/uploadFoto') ?>"/>Upload</button>
 			    <a href="<?php echo base_url('timeline/toko')?>" class="btn btn-danger float-right mr-3">Skip >></a>
 			</div>
 		</div>

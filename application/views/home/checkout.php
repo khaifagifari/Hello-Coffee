@@ -40,7 +40,7 @@
             </div>
           </div>        
         </div>
-        <input type="submit" value="Continue to checkout" class="btn2">
+        <input type="submit" value="Continue" class="btn2">
       </form>
     </div>
   </div>

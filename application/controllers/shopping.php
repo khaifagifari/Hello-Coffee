@@ -13,6 +13,8 @@ class shopping extends CI_Controller{
 		$var['keranjang'] = array();
 		foreach($data as $keranjang){
 			$temp = $this->kopi_model->getKopiById($keranjang['id_menu'])->result_array();
+			
+		$data = $this->keranjang_model->getItemByIdUser($id_user)->result_array();
 			$temp[0]['qty'] = $keranjang['qty'];
 			array_push($var['keranjang'], $temp[0]);
 		}
