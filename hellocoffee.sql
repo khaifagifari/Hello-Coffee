@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2019 at 02:45 PM
+-- Generation Time: Apr 24, 2019 at 04:25 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.0.32
 
@@ -61,14 +61,6 @@ CREATE TABLE `keranjang` (
   `id_user` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `keranjang`
---
-
-INSERT INTO `keranjang` (`id_keranjang`, `qty`, `id_menu`, `id_user`) VALUES
-(1, 2, 3, 2),
-(2, 1, 1, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -117,7 +109,8 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `deskripsi`, `jenis`, `foto
 (1, 'Kopi Capucino', 10000, 'Kopi yang pantas buat kamu yang manis', 'Capucino', 'coffee1.jpg', 1),
 (2, 'Kopi Espreso', 15000, 'Espresso merupakan kopi modern yang paling kuat kadar kopinya (very strong). Espresso merupakan ekstrak biji kopi murni tanpa campuran. Rasanya sudah pasti pahit, dengan tingkat kekentalannya tergantung dari biji kopi yang digunakan. Espresso biasa dikonsu', 'Espreso', 'Coffee4.jpg', 1),
 (3, 'Kopi Macchiato', 20000, 'Macchiato merupakan espresso yang diberi campuran susu foam. Foam atau susu yang di-steam sendiri kadarnya sedikit, sehingga rasanya tetap strong.', 'Macchiato', 'Coffee1.jpg', 1),
-(6, 'Cincau', 8000, 'Cincau lezat', 'Cincau', '', 1);
+(6, 'Cincau', 8000, 'Cincau lezat', 'Cincau', '', 1),
+(7, 'Baru', 50, 'mahal', 'kopi', '', 1);
 
 -- --------------------------------------------------------
 
@@ -141,6 +134,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nama`, `email`, `gender`, `Foto`, `id_toko`) VALUES
+(0, 'tegarganteng', '825d5b19a4be0614f0a8b8c6f7f4aaf8', 'tegar', 'tegar@gmail.com', 'laki-laki', '', 0),
 (1, 'faris', '7d77e825b80cff62a72e680c1c81424f', 'faris', 'faris@gmail.com', 'laki-laki', '', 0),
 (2, 'Ihsan', 'f9c8074d5a013e0729373f8f74cd0648', 'Ihsan', 'ihsan@gmail.com', 'L', '', 0),
 (3, 'Kekey', '93960bd0831c5282386062cfa3903c6b', 'Kekey', 'kekey@gmail.com', 'L', '', 0),
@@ -198,7 +192,7 @@ ALTER TABLE `daftar_toko`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_keranjang` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `komentar`
@@ -210,7 +204,7 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
