@@ -28,4 +28,26 @@ class komentar extends CI_Controller{
 		$data['komentar'] = $this->komentar_model->getKomentarById($id_menu);
 		$this->load->view('home/detail_produk', $data);
 	}	
-}
+
+		public function hapusKomentar($id){
+		$this->komentar_model->deleteKomentar($id);
+		redirect('timeline/toko');
+	}
+
+
+	public function editKomentar($id_menu){
+		$komentar['komentar'] = $this->komentar_model->getKomentarById($id_menu);
+		$this->form_validation->set_rules('nama_komentar',"Nama",'required');
+		$this->form_validation->set_rules('isi_komentar',"Komentar",'required');
+
+
+		$data = [
+				"nama_komentar" => $this->input->post('nama_komentar'),
+				"isi_komentar" => $this->input->post('isi_komentar'),
+			];
+
+			$this->komentar_model->editKomentar($id_menu,$data);
+
+			redirect('timeline/toko');
+		}
+	}
