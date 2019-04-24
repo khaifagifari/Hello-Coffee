@@ -66,7 +66,7 @@ height: 100%;">
 		Tambah Komentar
 	</div>
 	<div class="card-body">
-		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar') ?>">
+		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar/').$kopi['id_menu'] ?>">
 			<div class="form-label-group">
 				<input type="text" class="form-control" id="nama_komentar" name="nama_komentar">
 				<label for="nama_menu">Nama</label>
@@ -85,8 +85,8 @@ height: 100%;">
 	<?php foreach ($komentar as $komen): ?>
 		<a href="<?php echo base_url('komentar/daftarKomentar').$kopi['id_menu'] ?>"> </a>
 		<dl class="item-property">
-			<p style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
-			<p style="font-size: 20px;"><?php echo $komen['isi_komentar'] ?> </p>
+			<p class="m-4" style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
+			<p class="ml-4" style="font-size: 20px;">'<?php echo $komen['isi_komentar'] ?>' </p>
 		</dl>
 		<hr>
 	<?php endforeach; ?>

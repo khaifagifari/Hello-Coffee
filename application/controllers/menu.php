@@ -44,7 +44,7 @@ class menu extends CI_Controller{
 	}
 
 	public function editMenu($id_menu){
-		$menu['menu'] = $this->kopi_model->getKopiById($id_menu);
+		$menu['menu'] = $this->kopi_model->getKopiById($id_menu)->result_array();
 		$this->form_validation->set_rules('nama_menu',"Nama Menu",'required');
 		$this->form_validation->set_rules('harga',"Harga",'required');
 		$this->form_validation->set_rules('deskripsi',"Deskripsi",'required');

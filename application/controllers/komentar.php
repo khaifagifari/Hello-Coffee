@@ -9,7 +9,7 @@ class komentar extends CI_Controller{
 		$this->load->library('form_validation');
 	}
 
-	public function tambahKomentar(){
+	public function tambahKomentar($id_menu){
 		$this->form_validation->set_rules('nama_komentar',"Nama",'required');
 		$this->form_validation->set_rules('isi_komentar',"Komentar",'required');
 			
@@ -17,11 +17,13 @@ class komentar extends CI_Controller{
 				"nama_komentar" => $this->input->post('nama_komentar'),
 				"isi_komentar" => $this->input->post('isi_komentar'),
 				"id_user" => $_SESSION['id_user'],
+				"id_menu" => $id_menu
 			];
 
 			$this->komentar_model->tambahkomentar($data);
 
-			redirect('menu/daftarMenu/');
+			redirect('Detail_produk/detail/'.$id_menu);
+
 		}
 
 	public function daftarKomentar($id_menu){
