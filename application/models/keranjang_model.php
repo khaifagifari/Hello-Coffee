@@ -19,8 +19,8 @@ class keranjang_model extends CI_Model{
         //return as object array
 	}
 
-	public function tambahKeranjang($id_user){
-		return $this->db->insert('keranjang',$id_user);
+	public function tambahKeranjang($data){
+		return $this->db->insert('keranjang',$data);
 
 	}
 	public function editKeranjang($id,$data){
