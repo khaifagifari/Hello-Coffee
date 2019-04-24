@@ -20,43 +20,45 @@ height: 100%;">
 				</article> <!-- gallery-wrap .end// -->
 			</aside>
 			<aside class="col-sm-6">
-				<article class="card-body px-5 text-justify" style="padding-top: 30px;">
-					<h3 class="title mb-3"><?php echo $kopi['nama_menu'] ?></h3>
+				<form method="POST" action="<?php echo base_url('shopping/tambahKeranjang/'); echo $_SESSION['id_user']; echo "/".$_SESSION['id_menu']; ?>">
+					<article class="card-body px-5 text-justify" style="padding-top: 30px;">
+						<h3 class="title mb-3"><?php echo $kopi['nama_menu'] ?></h3>
 
-					<p class="price-detail-wrap"> 
-						<span class="price h3 text-warning"> 
-							<span class="currency">RP</span><span class="num"><?php echo $kopi['harga']?></span>
-						</span> 
-						<span>/ pcs</span> 
-					</p> <!-- price-detail-wrap .// -->
-					<dl class="item-property">
-						<dt>Description</dt>
-						<dd><p><?php echo $kopi['deskripsi'] ?> </p></dd>
-					</dl>
-					<dl class="param param-feature">
-						<dt>Jenis</dt>
-						<dd><?php echo $kopi['jenis'] ?></dd>
-					</dl>  <!-- item-property-hor .// -->
-					<dl class="param param-feature">
-						<dt>Toko</dt>
-						<dd>Alamat toko</dd>
-					</dl>  <!-- item-property-hor .// -->
+						<p class="price-detail-wrap"> 
+							<span class="price h3 text-warning"> 
+								<span class="currency">RP</span><span class="num"><?php echo $kopi['harga']?></span>
+							</span> 
+							<span>/ pcs</span> 
+						</p> <!-- price-detail-wrap .// -->
+						<dl class="item-property">
+							<dt>Description</dt>
+							<dd><p><?php echo $kopi['deskripsi'] ?> </p></dd>
+						</dl>
+						<dl class="param param-feature">
+							<dt>Jenis</dt>
+							<dd><?php echo $kopi['jenis'] ?></dd>
+						</dl>  <!-- item-property-hor .// -->
+						<dl class="param param-feature">
+							<dt>Toko</dt>
+							<dd>Alamat toko</dd>
+						</dl>  <!-- item-property-hor .// -->
 
-					<hr>
-					<dt class="mb-2">Jumlah</dt>
-					<div class="container">	 
-						<div class="input-group spinner">
-							<input type="text" class="form-control" value="1">
-							<div class="input-group-btn-vertical">
-								<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
-								<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+						<hr>
+						<dt class="mb-2">Jumlah</dt>
+						<div class="container">	 
+							<div class="input-group spinner">
+								<input type="text" class="form-control" value="1" name="jumlah">
+								<div class="input-group-btn-vertical">
+									<button class="btn btn-default" type="button"><i class="fa fa-caret-up"></i></button>
+									<button class="btn btn-default" type="button"><i class="fa fa-caret-down"></i></button>
+								</div>
 							</div>
 						</div>
-					</div>
-					<hr>
-					<a href="<?php echo base_url('shopping/checkout/') ?>" class="btn btn btn-primary text-uppercase mt-3"> Buy now </a>
-					<a href="<?php echo base_url('shopping/Keranjang/'); echo $_SESSION['id_user']; ?>" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </a>
-				</article> <!-- card-body.// -->
+						<hr>
+						<a href="<?php echo base_url('shopping/checkout/') ?>" class="btn btn btn-primary text-uppercase mt-3"> Buy now </a>
+						<button type="submit" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </button>
+					</article> <!-- card-body.// -->
+				</form>
 			</aside> <!-- col.// -->
 		</div> <!-- row.// -->
 	<?php endforeach; ?>
@@ -64,7 +66,7 @@ height: 100%;">
 		Tambah Komentar
 	</div>
 	<div class="card-body">
-		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar') ?>">
+		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar/').$kopi['id_menu'] ?>">
 			<div class="form-label-group">
 				<input type="text" class="form-control" id="nama_komentar" name="nama_komentar">
 				<label for="nama_menu">Nama</label>
@@ -83,8 +85,8 @@ height: 100%;">
 	<?php foreach ($komentar as $komen): ?>
 		<a href="<?php echo base_url('komentar/daftarKomentar').$kopi['id_menu'] ?>"> </a>
 		<dl class="item-property">
-			<p style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
-			<p style="font-size: 20px;"><?php echo $komen['isi_komentar'] ?> </p>
+			<p class="m-4" style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
+			<p class="ml-4" style="font-size: 20px;">'<?php echo $komen['isi_komentar'] ?>' </p>
 		</dl>
 		<hr>
 	<?php endforeach; ?>

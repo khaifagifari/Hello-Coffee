@@ -13,6 +13,7 @@ class shopping extends CI_Controller{
 		$var['keranjang'] = array();
 		foreach($data as $keranjang){
 			$temp = $this->kopi_model->getKopiById($keranjang['id_menu'])->result_array();
+			
 			$temp[0]['qty'] = $keranjang['qty'];
 			array_push($var['keranjang'], $temp[0]);
 		}
@@ -22,13 +23,14 @@ class shopping extends CI_Controller{
 		$this->load->view('templates/footer');
 
 	}
-	public function tambahKeranjang($id_user){
-		$data = $this->keranjang_model->tambahKeranjang($id_user)->result_array();
-		$this->load->view('templates/header');
-		$this->load->view('home/keranjangbelanja',$data);
-		$this->load->view('templates/footer');
-
-
+	public function tambahKeranjang($id_user,$id_menu){
+		$data = [
+			"qty" => $this->input->post('jumlah',true),
+			"id_menu" => $id_menu,
+			"id_user" => $id_user,
+		];
+		$this->keranjang_model->tambahKeranjang($data);
+		redirect('shopping/keranjang/'.$id_user);
 	}
 	
 	public function hapusKeranjang($id_user)

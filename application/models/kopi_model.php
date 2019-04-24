@@ -2,6 +2,7 @@
 
 class kopi_model extends CI_Model{
 
+
 	public function getKopi(){
 		$query = $this->db->get('menu');
 		return $query->result_array();
