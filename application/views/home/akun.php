@@ -4,19 +4,20 @@
     </div>
     <div class="container emp-profile">
         <form method="post" action="">
+            <?php foreach ($users as $user) : {
+                # code...
+            } ?>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="http://www.webcoderskull.com/img/team4.png" alt=""/>
-
+                        <img src="<?php echo site_url('assets/img/'.$user['Foto']) ?>" style="border-radius: 50%; object-fit: cover; width:230px; height: 230px;"/>
+                        <a class="btn btn-block btn-primary mt-3" href="<?php echo base_url('akun/editFoto/'.$user['id_user']) ?>">Edit Foto</a>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="profile-head">
                         <h5>
-                            <?php foreach ($users as $user) : {
-                                # code...
-                            } ?>
+                            
                             Selamat datang <?php echo $user['username']; ?>!
                         </h5>
                         <h6>
@@ -69,7 +70,7 @@
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Test</label>
+                                    <label>Kagatau mau diisi apaan</label>
                                 </div>
                                 <div class="col-md-6">
                                     <p>Test</p>
@@ -84,7 +85,6 @@
                 <?php endforeach; ?>
                 </div>
             </div>
-    
         </form>           
     </div>
 </section>
