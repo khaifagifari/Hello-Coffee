@@ -14,13 +14,13 @@
 <div class="row">
   <div class="col-75">
     <div class="container2">
-      <form action="/action_page.php">
+      <form action="<?php echo base_url()?>shopping/proses_order">
       
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Full name">
+            <input type="text" id="fname" name="nama" placeholder="Full name">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="Email">
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -40,7 +40,7 @@
             </div>
           </div>        
         </div>
-        <input type="submit" value="Continue" class="btn2">
+         <button type="submit" class="btn2">Continue</button>
       </form>
     </div>
   </div>

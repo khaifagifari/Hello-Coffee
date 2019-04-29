@@ -12,10 +12,11 @@
                     <td width="17%">Harga</td>
                     <td width="8%">Qty</td>
                     <td width="20%">Jumlah</td>
-                    <td width="10%">Hapus</td>
                 </tr>
                 <?php $i = 1; $total = 0;?>
                 <?php foreach($keranjang as $data): ?>
+                    
+                                            
                     <tr >
                         <td ><?php echo $i++; ?></td>
                         <td ><img src ="<?php echo base_url('assets/img/'); echo $data['foto'];?>"></td>
@@ -23,9 +24,9 @@
                         <td >Rp. <?php echo number_format($data['harga'], 0,",","."); ?></td>
                         <td ><input type="text" class="form-control input-sm" name=""  value="<?php echo $data['qty'] ?>" /></td> 
                         <td >Rp. <?php echo number_format($data['qty'] * $data['harga'], 0,",","."); ?></td>
-                        <td ><a href="<?php base_url('shopping/hapusKeranjang')?>" class="btn btn-sm btn-danger"  onclick="return confirm('Apakah anda yakin menghapus data ini?');">Hapus</a></td>
                     </tr>
                     <?php $total = $total + ($data['qty'] * $data['harga']); ?>
+             
                 <?php endforeach; ?>
                 <tr>
                     <td colspan="3"><b>Order Total: Rp. <?php echo number_format($total, 0,",","."); ?></b></td>
@@ -39,7 +40,7 @@
         <div class="modal-dialog modal-md">
       <!-- Modal content-->
         <div class="modal-content">
-            <form method="post" action="<?php echo base_url()?>shopping/hapus/all">
+            <form method="post" action="<?php echo base_url('shopping/hapusAll/');?> ">
                 <div class="modal-header">
 
                     <h4 class="modal-title" style="color: black">Konfirmasi</h4>
