@@ -20,22 +20,14 @@ class Registration extends CI_Controller{
 		} else {
 			$row = $this->Users_model->cariUser($this->input->post('username'))->num_rows();
 			if($row == 1){
-				//tambahin flash data "sudah ada username"
+				$this->session->set_flashdata('registrasi','<strong>Username</strong> yang anda masukan sudah terdaftar, silahkan cari username lain.');
+				$this->load->view('templates/head');
+				$this->load->view('home/registration');
 			}else{
 				$this->Users_model->tambahUser();
 				$this->load->model('toko_model');
-				$data = $this->Users_model->cariUser($this->input->post('username'))->result_array();
-				$_SESSION['username'] = $data[0]['username'];
-				$_SESSION['id_user'] = $data[0]['id_user'];
-				$_SESSION['id_toko'] = $data[0]['id_toko'];
-				$_SESSION['gender'] = $data[0]['gender'];
-				$_SESSION['email'] = $data[0]['email'];
-				$_SESSION['nama'] = $data[0]['nama'];
-
-				$data['toko'] = $this->toko_model->getToko();
-				$this->load->view('templates/header');
-				$this->load->view('home/table',$data);
-				$this->load->view('templates/footer');
+				$this->session->set_flashdata('login','<strong>Selamat</strong> anda telah terdaftar, silahkan login.');
+				$this->load->view('home/index');
 			}
 		}
 	}

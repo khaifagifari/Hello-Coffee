@@ -88,9 +88,9 @@ class Akun extends CI_Controller{
 	}
 	public function deleteAkun($id_user){
 		$this->Users_model->deleteUser($id_user);
-		session_start();
-		session_destroy();
-		redirect('home');
+		$kalimat = 'Akun <strong>'.$_SESSION['username'].'</strong> telah dihapus';
+		$this->session->set_flashdata('login',$kalimat);
+		$this->load->view('home/index');
 	}
 
 	public function editFoto($id_user){

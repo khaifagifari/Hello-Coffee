@@ -24,6 +24,7 @@ class Users_model extends CI_Model{
 			"email" => $this->input->post('email', true),
 			"gender" => $gender,
 			"nama" => $this->input->post('nama',true),
+			"Foto" => "kopi.png",
 		];
 		return $this->db->insert('user', $data);
 	}

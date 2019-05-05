@@ -18,8 +18,11 @@ class home extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() == FALSE)
-		{
+		{			
 			$this->load->view('home/index');
+		}
+		else if($this->input->post('remember') == TRUE){
+			
 		}
 		else{
 			if (($this->input->post('email')) and ($this->input->post('password'))){
@@ -44,10 +47,9 @@ class home extends CI_Controller {
 						$this->load->view('templates/header');
 						$this->load->view('home/table',$data);
 						$this->load->view('templates/footer');
-					}
-
-					
+					}					
 				}else{
+					$this->session->set_flashdata('login','<strong>Username atau password</strong> yang anda masukan salah.');
 					$this->load->view('home/index');
 				}
 			}

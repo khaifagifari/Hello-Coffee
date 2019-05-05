@@ -36,6 +36,16 @@
 								</div>  
 
 							</div>
+							<div class="container">
+				                <?php if ($this->session->flashdata('registrasi')) : ?>
+				                <div class="alert alert-success alert-dismissible fade show" role="alert">
+				                    <?php echo $this->session->flashdata('registrasi'); ?>
+				                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				                        <span aria-hidden="true">&times;</span>
+				                    </button>
+				                </div>
+				                <?php endif; ?> 
+				            </div>
 							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" name="regist">Register</button>
 							<!-- <a href="<?= base_url(); ?>Timeline" class="btn btn-lg btn-primary btn-block text-uppercase ">Sign in</a> -->
 							
