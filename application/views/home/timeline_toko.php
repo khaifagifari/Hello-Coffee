@@ -12,6 +12,14 @@
 		<h2 class="mt-5 pt-lg-4"> TOKO KOPI</h2>  
 			<h5 class="mb-4">Data Menu</h5>
 			<div class="container">
+				<?php if ($this->session->flashdata('menu')) : ?>
+	                <div class="alert alert-success fade show text-dark" role="alert">
+	                    <?php echo $this->session->flashdata('menu'); ?>
+	                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+	                </div>
+                <?php endif; ?>
 				<div class="row">
 					<!-- COFFEE CARD -->
 					<?php foreach ($menu as $kopi) : ?>

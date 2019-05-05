@@ -11,47 +11,59 @@ class home extends CI_Controller {
 		$this->load->model('toko_model');
 
 		$this->load->library('form_validation');
+		$this->load->helper('cookie');
 	}
 
 	public function index(){
-
+		$cookie = get_cookie('remember_me');
+		$data['data']['check'] = FALSE;
+		if($cookie){
+			parse_str($cookie,$cookies);
+			$data['data']['username'] = $cookies['username'];
+			$data['data']['password'] = $cookies['password'];
+			$data['data']['check'] = TRUE;
+		}
 		$this->form_validation->set_rules('email', 'Email', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() == FALSE)
-		{			
-			$this->load->view('home/index');
-		}
-		else if($this->input->post('remember') == TRUE){
-			
-		}
-		else{
-			if (($this->input->post('email')) and ($this->input->post('password'))){
-				$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
-				if($row == 1){
-					$data = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->result_array();
-					$_SESSION['username'] = $data[0]['username'];
-					$_SESSION['id_user'] = $data[0]['id_user'];
-					$_SESSION['id_toko'] = $data[0]['id_toko'];
-					$_SESSION['gender'] = $data[0]['gender'];
-					$_SESSION['email'] = $data[0]['email'];
-					$_SESSION['nama'] = $data[0]['nama'];
+		{
+			$this->load->view('home/index',$data);
+		}else{
+			if($this->input->post('remember') == TRUE){
+				$cookie = array(
+	                'name'   => 'remember_me',
+	                'expire' => '3000',
+	                'value'  => 'username='.$this->input->post('email').'&password='.$this->input->post('password')
+                );
+				set_cookie($cookie);
+			}else{
+				delete_cookie('remember_me');
+			}
+			$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
+			if($row == 1){
+				$data = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->result_array();
+				$_SESSION['username'] = $data[0]['username'];
+				$_SESSION['id_user'] = $data[0]['id_user'];
+				$_SESSION['id_toko'] = $data[0]['id_toko'];
+				$_SESSION['gender'] = $data[0]['gender'];
+				$_SESSION['email'] = $data[0]['email'];
+				$_SESSION['nama'] = $data[0]['nama'];
 
-					if($data[0]['id_toko'] != 0){
-						$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
-						$this->load->view('templates/header_toko');
-						$this->load->view('home/timeline_toko',$data);
-						$this->load->view('templates/footer');
-					}else{
-						$data['toko'] = $this->toko_model->getToko();
-
-						$this->load->view('templates/header');
-						$this->load->view('home/table',$data);
-						$this->load->view('templates/footer');
-					}					
+				if($data[0]['id_toko'] != 0){
+					$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array(	);
+					$this->load->view('templates/header_toko');
+					$this->load->view('home/timeline_toko',$data);
+					$this->load->view('templates/footer');
 				}else{
-					$this->session->set_flashdata('login','<strong>Username atau password</strong> yang anda masukan salah.');
-					$this->load->view('home/index');
-				}
+					$data['toko'] = $this->toko_model->getToko();
+
+					$this->load->view('templates/header');
+					$this->load->view('home/table',$data);
+					$this->load->view('templates/footer');
+				}					
+			}else{
+				$this->session->set_flashdata('login','<strong>Username atau password</strong> yang anda masukan salah.');
+				$this->load->view('home/index');
 			}
 		}
 	}

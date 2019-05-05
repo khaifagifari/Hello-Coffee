@@ -44,16 +44,16 @@
               </div>
 
               <div class="form-label-group">
-                <input type="text" id="email" class="form-control" placeholder="Email address" name="email" required autofocus>
-                <label for="email">Email address</label>
+                <input type="text" id="email" class="form-control" placeholder="Email or username" name="email" required autofocus <?php if($data['check'] == TRUE){echo 'value='.$data['username'];} ?>>
+                <label for="email">Email or username</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password"  <?php if($data['check'] == TRUE){echo 'value='.$data['password'];} ?> required>
                 <label for="password">Password</label>
               </div>
               <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" <?php if($data['check'] == TRUE){echo 'checked';}?>>
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
               <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" name="login" style="">Sign in</button>

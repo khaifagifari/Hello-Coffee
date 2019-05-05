@@ -1,4 +1,4 @@
-	<?php 
+<?php 
 
 class menu extends CI_Controller{
 
@@ -10,8 +10,16 @@ class menu extends CI_Controller{
 	}
 
 	public function hapusMenu($id_menu){
+		$menu['menu'] = $this->kopi_model->getKopiById($id_menu)->result_array();
+		$nama = $menu['menu'][0]['nama_menu'];
 		$this->kopi_model->deleteMenu($id_menu);
 
+		$this->session->set_flashdata('menu','Menu <strong>'.$nama.'</strong> berhasil dihapus.');
+		$this->load->model('kopi_model');
+		$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array();
+		$this->load->view('templates/header_toko');
+		$this->load->view('home/timeline_toko',$data);
+		$this->load->view('templates/footer');
 		redirect('timeline/toko');
 	}
 
@@ -20,9 +28,8 @@ class menu extends CI_Controller{
 		$this->form_validation->set_rules('harga',"Harga",'required');
 		$this->form_validation->set_rules('deskripsi',"Deskripsi",'required');
 		$this->form_validation->set_rules('jenis',"Jenis",'required');
-		$this->form_validation->set_message('nama_menu', 'You must select a business');
+		$this->form_validation->set_message('nama_menu', 'You must select a menu');
 		// $this->form_validation->set_rules('foto',"Foto",'required');
-
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('templates/header_toko');
 			$this->load->view('home/tambah_menu');
@@ -59,6 +66,12 @@ class menu extends CI_Controller{
 
 			$this->kopi_model->editMenu($id_menu,$data);
 
+			$this->session->set_flashdata('menu','Menu <strong>'.$this->input->post('nama_menu').'</strong> berhasil diubah.');
+			$this->load->model('kopi_model');
+			$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array();
+			$this->load->view('templates/header_toko');
+			$this->load->view('home/timeline_toko',$data);
+			$this->load->view('templates/footer');
 			redirect('timeline/toko');
 		}
 	}
@@ -71,6 +84,26 @@ class menu extends CI_Controller{
 		$this->load->view('templates/footer');
 	}
 
+	public function uploadMenu(){
+		$data = [
+			"foto" => "kopi.png",
+			"nama_menu" => $_SESSION['nama_menu'],
+			"harga" => $_SESSION['harga'],
+			"deskripsi" => $_SESSION['deskripsi'],
+			"jenis" => $_SESSION['jenis'],
+			"id_toko" => $_SESSION['id_toko'],
+		];
+
+		$this->kopi_model->tambahMenu($data);
+           	
+       	$this->session->set_flashdata('menu','Menu <strong>'.$_SESSION['nama_menu'].'</strong> berhasil ditambahkan.');
+		$this->load->model('kopi_model');
+		$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array();
+		$this->load->view('templates/header_toko');
+		$this->load->view('home/timeline_toko',$data);
+		$this->load->view('templates/footer');
+		redirect('timeline/toko');
+	}
 
 	public function uploadFoto(){
 		$config['upload_path']          = './assets/img/';
@@ -104,7 +137,14 @@ class menu extends CI_Controller{
            		}
            	}
            	$this->kopi_model->tambahMenu($data);
-           	redirect('timeline/toko');
+           	
+           	$this->session->set_flashdata('menu','Menu <strong>'.$_SESSION['nama_menu'].'</strong> berhasil ditambahkan.');
+			$this->load->model('kopi_model');
+			$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array();
+			$this->load->view('templates/header_toko');
+			$this->load->view('home/timeline_toko',$data);
+			$this->load->view('templates/footer');
+			redirect('timeline/toko');
         }
 	}
 
@@ -137,6 +177,14 @@ class menu extends CI_Controller{
            	}
 
 			$this->kopi_model->editMenu($id_menu,$data);
+
+			$nama = $temp[0]['nama_menu'];
+			$this->session->set_flashdata('menu','Foto <strong>'.$_SESSION['nama_menu'].'</strong> berhasil diubah.');
+			$this->load->model('kopi_model');
+			$data['menu'] = $this->kopi_model->getMenuToko($_SESSION['id_toko'])->result_array();
+			$this->load->view('templates/header_toko');
+			$this->load->view('home/timeline_toko',$data);
+			$this->load->view('templates/footer');
 			redirect('timeline/toko');
         }
 	}
