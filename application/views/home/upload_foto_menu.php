@@ -1,4 +1,4 @@
-<section class="padding-lg" style="background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80');">
+s<section class="padding-lg" style="background: url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=956&q=80');">
 	<div class="container">
 		<div class="row mt-3 pb-3 col card text-dark">
 			<div class="file-upload text-center pt-5">
@@ -9,7 +9,7 @@
 				<?php echo form_open_multipart('menu/uploadFoto');?>
 			    <input class="btn" type="file" name="userfile" size="20"/>
 			    <br/><br/>
-			    <button type="submit" class="btn btn-primary float-right text-light" value="upload" href="<?php echo base_url('menu/uploadFoto/') ?>"/>Upload</button>
+			    <button type="submit" class="btn btn-primary float-right text-light" value="upload" href="<?php echo base_url('menu/uploadFoto') ?>"/>Upload</button>
 			    <a href="<?php echo base_url('timeline/toko')?>" class="btn btn-danger float-right mr-3">Skip >></a>
 			</div>
 		</div>

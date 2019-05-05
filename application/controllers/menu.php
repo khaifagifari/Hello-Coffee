@@ -1,4 +1,4 @@
-<?php 
+	<?php 
 
 class menu extends CI_Controller{
 
@@ -141,4 +141,4 @@ class menu extends CI_Controller{
         }
 	}
 }
-?>
+?>	

@@ -19,18 +19,6 @@
       </li>
       <li class="col-12 col-md-6 col-lg-4">
         <div class="cnt-block equal-hight" style="height: 349px;">
-          <figure><img src="<?php echo base_url('assets/sultan.jpg') ?>" class="img-responsive" alt=""></figure>
-          <h3><a href="http://www.webcoderskull.com/">Muhammad Khaifa Gifari </a></h3>
-          <p>Sultan</p>
-          <ul class="follow-us clearfix">
-            <li><a href="https://www.facebook.com/khaifa.gifari"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.instagram.com/khaifagifari_/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="col-12 col-md-6 col-lg-4">
-        <div class="cnt-block equal-hight" style="height: 349px;">
           <figure><img src="<?php echo base_url("assets/Ihsan.jpg") ?>" class="img-responsive" alt=""></figure>
           <h3><a href="#">Muhammad Fadhil Ihsan </a></h3>
           <p>Young Entrepreneur</p>
@@ -39,7 +27,19 @@
             <li><a href="https://twitter.com/FadhilIhsn"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
             <li><a href="https://www.instagram.com/fadhilihsn/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
           </ul>
-        </div> 
+        </div>
+      </li>
+      <li class="col-12 col-md-6 col-lg-4">
+        <div class="cnt-block equal-hight" style="height: 349px;">
+           <figure><img src="<?php echo base_url('assets/sultan.jpg') ?>" class="img-responsive" alt=""></figure>
+          <h3><a href="http://www.webcoderskull.com/">Muhammad Khaifa Gifari</a></h3>
+          <p>Sultan</p>
+          <ul class="follow-us clearfix">
+            <li><a href="https://www.facebook.com/khaifa.gifari"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/khaifagifari_/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
       </li>
     </ul>
     <ul class="row justify-content-md-center">
