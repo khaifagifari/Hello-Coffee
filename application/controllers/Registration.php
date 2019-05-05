@@ -27,7 +27,8 @@ class Registration extends CI_Controller{
 				$this->Users_model->tambahUser();
 				$this->load->model('toko_model');
 				$this->session->set_flashdata('login','<strong>Selamat</strong> anda telah terdaftar, silahkan login.');
-				$this->load->view('home/index');
+				$data['data']['check'] = FALSE;
+				redirect('home/index',$data);
 			}
 		}
 	}

@@ -90,7 +90,8 @@ class Akun extends CI_Controller{
 		$this->Users_model->deleteUser($id_user);
 		$kalimat = 'Akun <strong>'.$_SESSION['username'].'</strong> telah dihapus';
 		$this->session->set_flashdata('login',$kalimat);
-		$this->load->view('home/index');
+		$data['data']['check'] = FALSE;
+		$this->load->view('home/index',$data);
 	}
 
 	public function editFoto($id_user){

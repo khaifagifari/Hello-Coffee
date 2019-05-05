@@ -40,7 +40,7 @@ class home extends CI_Controller {
 				delete_cookie('remember_me');
 			}
 			$row = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->num_rows();
-			if($row == 1){
+			if($row > 0){
 				$data = $this->Users_model->cariDataUser($this->input->post('email'),md5($this->input->post('password')))->result_array();
 				$_SESSION['username'] = $data[0]['username'];
 				$_SESSION['id_user'] = $data[0]['id_user'];
@@ -63,7 +63,8 @@ class home extends CI_Controller {
 				}					
 			}else{
 				$this->session->set_flashdata('login','<strong>Username atau password</strong> yang anda masukan salah.');
-				$this->load->view('home/index');
+				$data['data']['check'] = FALSE;
+				$this->load->view('home/index',$data);
 			}
 		}
 	}
@@ -73,6 +74,7 @@ class home extends CI_Controller {
 
 		// $this->load->view('templates/header');
 		$message = "akun berhasil dihapus";
+		$data['data']['check'] = FALSE;
 		echo "<script type='text/javascript'>alert('$message');</script>";
 		redirect('/home', 'refresh');
 	}
