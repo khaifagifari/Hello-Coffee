@@ -70,10 +70,10 @@
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label></label>
+                                    <label>Kagatau mau diisi apaan</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <p></p>
+                                    <p>Test</p>
                                 </div>
                             </div>
                             

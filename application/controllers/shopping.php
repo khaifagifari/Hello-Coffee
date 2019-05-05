@@ -5,7 +5,8 @@ class shopping extends CI_Controller{
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('keranjang_model');
-		$this->load->model('kopi_model');
+		$this->load->model('kopi_model');		
+		$this->load->library('form_validation');
 	}
 
 	public function keranjang($id_user){
@@ -16,7 +17,8 @@ class shopping extends CI_Controller{
 			
 			$temp[0]['qty'] = $keranjang['qty'];
 			array_push($var['keranjang'], $temp[0]);
-		}
+		}/*
+		$var['keranjang_baru']=$this->keranjang_model->getItemById($id_keranjang);*/
 
 		$this->load->view('templates/header');
 		$this->load->view('home/keranjangbelanja',$var);
@@ -33,10 +35,12 @@ class shopping extends CI_Controller{
 		redirect('shopping/keranjang/'.$id_user);
 	}
 	
-	public function hapusKeranjang($id_user)
+	public function hapusKeranjang($id_keranjang)
 	{
-		$this->keranjang_model->deleteKeranjang($id_user);
-		$data['keranjang']= $this->keranjang_model->deleteKeranjang($id_user);
+		$this->keranjang_model->deleteKeranjang($id_keranjang);
+		$data['keranjang']= $this->keranjang_model->deleteKeranjang($id_keranjang);
+		$this->session->set_flashdata('flash','delete success'); 
+		redirect('shopping/keranjang');
 	}
 	public function checkout(){
 		$data = $this->keranjang_model->getItemByIdUser($_SESSION['id_user'])->result_array();
@@ -51,6 +55,25 @@ class shopping extends CI_Controller{
 		$this->load->view('home/checkout',$var);
 		$this->load->view('templates/footer');
 
+	}
+	public function proses_order()
+	{
+
+		$this->load->view('templates/header');
+		$this->load->view('home/selesai');		
+		$this->load->view('templates/footer');
+		
+	}
+	public function keranjang1(){
+			$this->load->view('templates/header');
+		$this->load->view('home/keranjang');
+		$this->load->view('templates/footer');
+	}
+	public function hapusAll()
+	{	
+
+		$this->keranjang_model->hapusAll();
+		redirect('shopping/keranjang1');
 	}
 
 }

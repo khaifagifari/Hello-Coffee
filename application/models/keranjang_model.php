@@ -14,9 +14,9 @@ class keranjang_model extends CI_Model{
 	}
 
 	public function getItemById($id_keranjang){
-		$query = $this->db->query("SELECT * FROM menu WHERE id_keranjang='$id_keranjang'");
+		$query = $this->db->query("SELECT * FROM keranjang WHERE id_keranjang='$id_keranjang'");
         return $query->result_array();
-        //return as object array
+        
 	}
 
 	public function tambahKeranjang($data){
@@ -27,9 +27,27 @@ class keranjang_model extends CI_Model{
 		$this->db->where('id_menu',$id);
 		return $this->db->update('keranjang',$data);
 	}
-	public function deleteKeranjang($id){
+	public function deleteKeranjang($id_keranjang){
 		$this->db->where('id_keranjang',$id);
 		return $this->db->delete('keranjang');
 	}
+	public function tambah_pelanggan($data)
+	{
+		$this->db->insert('order', $data);
+		$id = $this->db->insert_id();
+		return (isset($id)) ? $id : FALSE;
+	}
+	public function tambahorder(){
+		$data = [
+			"nama" => $this->input->post('nama', true),
+			
+			"email" => $this->input->post('email', true),
+		];
+		$this->db->insert('order', $data);
+	}
+	public function hapusAll(){
+		$this->db->empty_table('keranjang');
+	}
+	
 }
 ?>

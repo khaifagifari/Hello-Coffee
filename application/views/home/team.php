@@ -37,7 +37,7 @@
           <ul class="follow-us clearfix">
             <li><a href="https://www.facebook.com/khaifa.gifari"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-            <li><a href="https://www.instagram.com/khaifagifari_/?hl=id"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/khaifagifari_/?hl=id"><i class="fa fa-instagrams" aria-hidden="true"></i></a></li>
           </ul>
         </div>
       </li>
