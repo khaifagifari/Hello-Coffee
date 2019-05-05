@@ -44,7 +44,6 @@ class Users_model extends CI_Model{
 		$this->db->from('user');
 		$this->db->where('username',$username);
 		$this->db->where('password',$password);
-		$this->db->or_where('email',$username);
 		return $this->db->get();
 	}
 

@@ -45,7 +45,7 @@
 
               <div class="form-label-group">
                 <input type="text" id="email" class="form-control" placeholder="Email or username" name="email" required autofocus <?php if($data['check'] == TRUE){echo 'value='.$data['username'];} ?>>
-                <label for="email">Email or username</label>
+                <label for="email">Username</label>
               </div>
 
               <div class="form-label-group">
