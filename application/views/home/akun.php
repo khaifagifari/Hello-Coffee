@@ -4,23 +4,24 @@
     </div>
     <div class="container emp-profile">
         <form method="post" action="">
+            <?php foreach ($users as $user) : {
+                # code...
+            } ?>
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src="http://www.webcoderskull.com/img/team4.png" alt=""/>
-
+                        <img src="<?php echo site_url('assets/img/'.$user['Foto']) ?>" style="border-radius: 50%; object-fit: cover; width:230px; height: 230px;"/>
+                        <a class="btn btn-block btn-primary mt-3" href="<?php echo base_url('akun/editFoto/'.$user['id_user']) ?>">Edit Foto</a>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="profile-head">
                         <h5>
-                            <?php foreach ($users as $user) : {
-                                # code...
-                            } ?>
+                            
                             Selamat datang <?php echo $user['username']; ?>!
                         </h5>
                         <h6>
-                            Status : User
+                            Status : <?php if($user['id_toko']!=0){echo "Toko Kopi";}else{echo "User";} ?>
                         </h6>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -78,13 +79,12 @@
                             
                         </div>
                         <hr>    
-                        <a href="" class="btn btn-primary float-right  ">Edit Akun</a>
-                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
+                        <a href="<?php echo base_url('Akun/editAkun') ?>" class="btn btn-primary float-right  ">Edit Akun</a>
+                        <a href="<?php echo base_url('Akun/deleteAkun/'.$user['id_user']); ?>" onclick="return confirm('Apakah anda yakin menghapus data ini?');" class="btn btn-danger float-right mr-3 ">Delete Akun</a>
                     </div>
                 <?php endforeach; ?>
                 </div>
             </div>
-    
         </form>           
     </div>
 </section>

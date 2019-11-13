@@ -10,8 +10,16 @@
 <section style="min-height: 920px;" id="menu" class="pt-3">
 	<div class="container-fluid text-center text-capitalize">
 		<h2 class="mt-5 pt-lg-4"> TOKO KOPI</h2>  
-			<h5 class="mb-4">You can choose anything u want</h5>
+			<h5 class="mb-4">Data Menu</h5>
 			<div class="container">
+				<?php if ($this->session->flashdata('menu')) : ?>
+	                <div class="alert alert-success fade show text-dark" role="alert">
+	                    <?php echo $this->session->flashdata('menu'); ?>
+	                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+	                </div>
+                <?php endif; ?>
 				<div class="row">
 					<!-- COFFEE CARD -->
 					<?php foreach ($menu as $kopi) : ?>
@@ -19,30 +27,41 @@
 							<form method="post" action="" method="post" accept-charset="utf-8">
 								<article class="card-wrapper text-dark text-center">
 
-									<div class="image-holder">	<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
+										<!-- <div class="image-holder">	 -->
+											<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
 
-										<div class="image-liquid image-holder--original"
-										style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+											<div class="image-liquid image-holder--original"
+											style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto_kopi'] ?>')">
+										<!-- </div> -->
 									</div>
-								</div>
-								<div class="product-description">
-									<!-- title -->
-									<div class="card-body pt-2 pb-2">
-										<h5 class="card-title mb-3"><?php echo $kopi['nama_menu'] ?></h5>
-										<hr class="mb-2 mt-0">
-										<p class="card-text">Id = <?php echo $kopi['id_menu'] ?></p>
-										<p class="card-text"><?php echo $kopi['jenis'] ?></p>
+									<div class="product-description">
+										<!-- title -->
+										<div class="card-body pt-2 pb-2">
+											<h5 class="card-title mb-3"><?php echo $kopi['nama_menu'] ?></h5>
+											<hr class="mb-2 mt-0">
+											<p class="card-text">Harga = <?php echo $kopi['harga'] ?></p>
+											<p class="card-text">Jenis = <?php echo $kopi['jenis'] ?></p>
+										</div>
+										<a href="<?php echo base_url('menu/hapusMenu/'); echo $kopi['id_menu']; ?>" onclick="return confirm('Apakah anda yakin menghapus <?php echo $kopi['nama_menu']?>?');"class="btn btn-danger float-left">Hapus Menu</a>
+										<a href="<?php echo base_url('menu/editMenu/'); echo $kopi['id_menu']; ?>" class="btn btn-warning float-right font-weight-bold">Edit Menu</a>
 									</div>
-									<a href="<?php echo base_url('Detail_produk/detail/'); echo $kopi['id_menu']; ?>" class="btn btn-primary float-right ">Detail</a>	
-									<input type="hidden" name="id_menu" value="<?php echo $kopi['id_menu']; ?>" />
-									<input type="hidden" name="nama_menu" value="<?php echo $kopi['nama_menu']; ?>" />
-									<input type="hidden" name="harga" value="<?php echo $kopi['harga']; ?>" />
-									<input type="hidden" name="jenis" value="<?php echo $kopi['jenis']; ?>" />
-								</div>
 							</article>
 						</form>
 					</div>
 				<?php endforeach; ?>
+				<div class="col-12 col-md-6 col-lg-4">
+					<form method="post" action="" method="post" accept-charset="utf-8">
+						<article class="card-wrapper text-dark text-center">	
+							<div class="image-holder">
+								<a href="<?php echo base_url('menu/tambahMenu') ?>" class="image-holder__link"></a>
+							</div>
+							<div class="card-body pt-0">
+								<h5 class="card-title mb-3">Tambah Menu</h5>
+							</div>
+						</article>
+						<div class="product-description">
+					</form>
+				</div>
 				<!-- end COFFEE CARD -->
 			</div>
 		</div>

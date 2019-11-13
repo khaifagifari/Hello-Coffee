@@ -14,22 +14,21 @@ class Registration extends CI_Controller{
 		$this->form_validation->set_rules('email', 'Email', 'required|trim');
 
 		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/head');
 			$this->load->view('home/registration');
 
 		} else {
-			if(($this->input->post('username')) and ($this->input->post('password')) and ($this->input->post('email'))){
-				$row = $this->Users_model->cariUser($this->input->post('username'))->num_rows();
-				if($row == 1){
-					//tambahin flash data "sudah ada username"
-				}else{
-					$this->Users_model->tambahUser();
-					$this->load->view('home/index');
-					// $this->load->model('kopi_model');
-					// $data['coffee'] = $this->kopi_model->getKopi();
-					// $this->load->view('templates/header');
-					// $this->load->view('home/table');
-					// $this->load->view('templates/footer');
-				}
+			$row = $this->Users_model->cariUser($this->input->post('username'))->num_rows();
+			if($row == 1){
+				$this->session->set_flashdata('registrasi','<strong>Username</strong> yang anda masukan sudah terdaftar, silahkan cari username lain.');
+				$this->load->view('templates/head');
+				$this->load->view('home/registration');
+			}else{
+				$this->Users_model->tambahUser();
+				$this->load->model('toko_model');
+				$this->session->set_flashdata('login','<strong>Selamat</strong> anda telah terdaftar, silahkan login.');
+				$data['data']['check'] = FALSE;
+				redirect('home/index',$data);
 			}
 		}
 	}

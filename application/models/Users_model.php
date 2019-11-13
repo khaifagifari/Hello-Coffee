@@ -10,23 +10,21 @@ class Users_model extends CI_Model{
 		return $this->db->get('user')->result_array();
 	}
 	public function getUserById($id_user){
-		$query = $this->db->query("SELECT * FROM user WHERE id_user='$id_user'");
-        return $query->result_array();
+		$this->db->from('user');
+		$this->db->where('id_user',$id_user);
+        return $this->db->get()->result_array();
         //return as object array
 	}
 
 	public function tambahUser(){
 		$gender = $this->input->post('gender', true);
-		if($gender = 'Laki-laki'){
-			$gender = 'Laki-laki';
-		}else if($gender = 'perempuan'){
-			$gender = 'Perempuan';
-		}
 		$data = [
 			"username" => $this->input->post('username', true),
-			"password" => $this->input->post('password', true),
+			"password" => md5($this->input->post('password', true)),
 			"email" => $this->input->post('email', true),
 			"gender" => $gender,
+			"nama" => $this->input->post('nama',true),
+			"Foto" => "kopi.png",
 		];
 		return $this->db->insert('user', $data);
 	}
@@ -45,14 +43,12 @@ class Users_model extends CI_Model{
 	public function cariDataUser($username,$password){
 		$this->db->from('user');
 		$this->db->where('username',$username);
-		$this->db->or_where('email',$username);
 		$this->db->where('password',$password);
 		return $this->db->get();
 	}
 
-
-	public function editUser($username,$data){
-		$this->db->where('username',$username);
+	public function editUser($id_user,$data){
+		$this->db->where('id_user',$id_user);
 		return $this->db->update('user',$data);
 	}
 }

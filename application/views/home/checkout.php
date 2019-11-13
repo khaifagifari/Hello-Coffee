@@ -14,13 +14,13 @@
 <div class="row">
   <div class="col-75">
     <div class="container2">
-      <form action="/action_page.php">
+      <form action="<?php echo base_url()?>shopping/proses_order">
       
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="Full name">
+            <input type="text" id="fname" name="nama" placeholder="Full name">
             <label for="email"><i class="fa fa-envelope"></i> Email</label>
             <input type="text" id="email" name="email" placeholder="Email">
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -38,49 +38,27 @@
                 <input type="text" id="zip" name="zip" placeholder="Zip">
               </div>
             </div>
-          </div>
-<!-- 
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-          </div> -->
-          
+          </div>        
         </div>
-        <input type="submit" value="Continue to checkout" class="btn2">
+         <button type="submit" class="btn2">Continue</button>
       </form>
     </div>
   </div>
   <div class="col-25">
     <div class="container3">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a >Kopi sachet</a> <span class="price" style="color: black"><b>Rp. 15.000</b></span></p>
-      <p><a >Kopi basi</a> <span class="price" style="color: black"><b>Rp. 10.000</b></span></p>
-      <p><a >Kopi mas fadhil</a> <span class="price" style="color: black"><b>Rp. 24.000</b></span></p>
-      <p><a >Kopi ai sia noob</a> <span class="price" style="color: black"><b>Rp. 20.200</b></span></p>
+        <?php   
+          $total = 0;
+          $harga =0;
+        foreach($keranjang as $data){
+            $total = $total + $data['qty'];
+        }?>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo  $total ?></b></span></h4>
+      <?php foreach($keranjang as $data): ?>
+      <p><a ><?php echo $data['nama_menu'] ?>(<?php echo $data['qty']?>)   </a> <span class="price" style="color: black"><b>Rp. <?php echo $data['qty'] * $data['harga']; ?></b></span></p>
       <hr>
-      <p>Total <span class="price" style="color:black"><b>Rp. 2.000.000</b></span></p>
+      <?php $harga = $harga + ($data['qty'] * $data['harga']); ?>
+       <?php endforeach; ?>
+      <p>Total <span class="price" style="color:black"><b>Rp. <?php echo $harga ?>  </b></span></p>
     </div>
   </div>
 </div>
