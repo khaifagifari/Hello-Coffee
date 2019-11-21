@@ -15,7 +15,7 @@ height: 100%;">
 				<article class="gallery-wrap"> 
 					<div class="img-big-wrap">
 
-						<div> <a href="#"><img src="<?php echo base_url('assets/img/').$toko['foto'] ?>" ></a></div>
+						<div> <a href="#"><img src="<?php echo base_url('assets/img/').$toko['foto_toko'] ?>" ></a></div>
 					</div> <!-- slider-product.// -->
 				</article> <!-- gallery-wrap .end// -->
 			</aside>

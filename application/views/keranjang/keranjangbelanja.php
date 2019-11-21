@@ -33,7 +33,7 @@
                     <td colspan="4" align="right">
                     <a data-toggle="modal" data-target="#myModal"  class ='btn btn-sm btn-danger'>Kosongkan Cart</a>
                     <!-- <button class='btn btn-sm btn-success'  type="submit">Update Cart</button> -->
-                    <a href="<?php echo base_url('shopping/checkout');?>"  class ='btn btn-sm btn-primary'>Check Out</a>
+                    <a href="<?php echo base_url('shopping/checkout/'.$_SESSION['id_user']);?>"  class ='btn btn-sm btn-primary'>Check Out</a>
                 </tr>
             </table>
     <div class="modal fade" id="myModal" role="dialog">

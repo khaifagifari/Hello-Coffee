@@ -20,7 +20,7 @@ height: 100%;">
 				</article> <!-- gallery-wrap .end// -->
 			</aside>
 			<aside class="col-sm-6">
-				<form method="POST" action="<?php echo base_url('shopping/tambahKeranjang/'); echo $_SESSION['id_user']; echo "/".$_SESSION['id_menu']; ?>">
+				<form method="POST" action="" id="form_beli">
 					<article class="card-body px-5 text-justify" style="padding-top: 30px;">
 						<h3 class="title mb-3"><?php echo $kopi['nama_menu'] ?></h3>
 
@@ -59,8 +59,8 @@ height: 100%;">
 							</div>
 						</div>
 						<hr>
-						<a href="<?php echo base_url('shopping/checkout/') ?>" class="btn btn btn-primary text-uppercase mt-3"> Buy now </a>
-						<button type="submit" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </button>
+						<button type="submit" onclick="submitForm('<?php echo base_url('shopping/checkoutNow/'.$_SESSION['id_user'].'/'.$kopi['id_menu']) ?>')" class="btn btn btn-primary text-uppercase mt-3 mr-2"> Buy now </a>
+						<button type="submit" onclick="submitForm('<?php echo base_url('shopping/tambahKeranjang/'); echo $_SESSION['id_user']; echo "/".$_SESSION['id_menu']; ?>')" class="btn btn btn-outline-primary text-uppercase mt-3"> Add to cart </button>
 					</article> <!-- card-body.// -->
 				</form>
 			</aside> <!-- col.// -->
@@ -70,11 +70,7 @@ height: 100%;">
 		Tambah Komentar
 	</div>
 	<div class="card-body">
-		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar') ?>">
-			<div class="form-label-group">
-				<input type="text" class="form-control" id="nama_komentar" name="nama_komentar">
-				<label for="nama_menu">Nama</label>
-			</div>
+		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar/'.$_SESSION['id_menu']) ?>">
 			<div class="form-label-group">
 				<input type="text" name="isi_komentar" id="isi_komentar" class="form-control">
 				<label for="harga">Komentar</label>
@@ -90,7 +86,10 @@ height: 100%;">
 		<a href="<?php echo base_url('komentar/daftarKomentar').$kopi['id_menu'] ?>"> </a>
 		<dl class="item-property">
 			<p class="m-4" style="font-size:14px;color: grey"> Oleh: <a href="" style="color:black;font-size: 17px; font-style: italic;" > <?php echo $komen['nama_komentar'] ?> </a></p>
-			<p class="ml-3" style="font-size: 20px;">'<?php echo $komen['isi_komentar'] ?>' </p>
+			<p class="ml-3" style="font-size: 20px;">'<?php echo $komen['isi_komentar'] ?>'</p>
+			<?php if($komen['id_user'] == $_SESSION['id_user']):?>
+			<a href="<?php echo base_url('komentar/hapusKomentar/'.$komen['id_komentar'].'/'.$_SESSION['id_menu']) ?>" type="" name="tambah" class="btn btn-danger mr-3" style="float: right;">Hapus Komentar</a>
+			<?php endif;?>
 		</dl>
 		<hr>
 	<?php endforeach; ?>
@@ -111,4 +110,10 @@ height: 100%;">
 			$('.spinner input').val( parseInt($('.spinner input').val(), 10) - 1);
 		});
 	})(jQuery);
+
+	function submitForm(action)
+    {
+        document.getElementById('form_beli').action = action;
+        document.getElementById('form_beli').submit();
+    }
 </script>

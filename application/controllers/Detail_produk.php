@@ -14,9 +14,8 @@ class Detail_produk extends CI_Controller{
 		$this->load->model('komentar_model');
 		$data['komentar'] = $this->komentar_model->getKomentarById($id_menu);
 		$this->load->view('templates/header');
-		$this->load->view('home/detail_produk', $data);
+		$this->load->view('produk_toko/detail_produk', $data);
 		$this->load->view('templates/footer');
 	}
-
 	
 }

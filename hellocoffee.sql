@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Nov 2019 pada 10.56
+-- Waktu pembuatan: 21 Nov 2019 pada 23.39
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.2.12
 
@@ -51,6 +51,32 @@ INSERT INTO `daftar_toko` (`id_toko`, `nama_toko`, `alamat`, `id_user`, `foto_to
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `detail_transaksi`
+--
+
+CREATE TABLE `detail_transaksi` (
+  `id_detail_transaksi` int(8) NOT NULL,
+  `full_name` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `city` varchar(64) NOT NULL,
+  `zip` varchar(64) NOT NULL,
+  `state` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `detail_transaksi`
+--
+
+INSERT INTO `detail_transaksi` (`id_detail_transaksi`, `full_name`, `email`, `address`, `city`, `zip`, `state`) VALUES
+(14, 'a', 'kekey', 'a', 'A', '12012', 'jambi'),
+(15, 'a', 'kekey', 'a', 'A', '12012', 'jambi'),
+(16, '', '', '', '', '', ''),
+(17, 'putra', 'putra', 'putra', 'putra', '12345', 'bojongpasir');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `keranjang`
 --
 
@@ -66,7 +92,10 @@ CREATE TABLE `keranjang` (
 --
 
 INSERT INTO `keranjang` (`id_keranjang`, `qty`, `id_menu`, `id_user`) VALUES
-(5, 5, 1, 2);
+(3, 2, 3, 2),
+(4, 2, 2, 2),
+(5, 2, 2, 2),
+(6, 1, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -89,8 +118,9 @@ CREATE TABLE `komentar` (
 INSERT INTO `komentar` (`id_komentar`, `nama_komentar`, `isi_komentar`, `id_user`, `id_menu`) VALUES
 (1, 'adam', 'adam', 5, 1),
 (4, 'khaifa', 'kopi ku', 4, 4),
-(5, 'Rizky', 'hello coffee, website impianku', 4, 2),
-(6, 'abi', 'bisa mesan mas?', 4, 3);
+(6, 'abi', 'bisa mesan mas?', 4, 3),
+(7, 'Putra', 'wah', 4, 2),
+(12, 'Ihsan', 'tes', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -116,6 +146,32 @@ INSERT INTO `menu` (`id_menu`, `nama_menu`, `harga`, `deskripsi`, `jenis`, `foto
 (1, 'Kopi Capucino', 10000, 'Kopi yang pantas buat kamu yang manis', 'Capucino', 'coffee1.jpg', 1),
 (2, 'Kopi Espreso', 15000, 'Espresso merupakan kopi modern yang paling kuat kadar kopinya (very strong). Espresso merupakan ekstrak biji kopi murni tanpa campuran. Rasanya sudah pasti pahit, dengan tingkat kekentalannya tergantung dari biji kopi yang digunakan. Espresso biasa dikonsu', 'Espreso', 'Coffee4.jpg', 1),
 (3, 'Kopi Macchiato', 20000, 'Macchiato merupakan espresso yang diberi campuran susu foam. Foam atau susu yang di-steam sendiri kadarnya sedikit, sehingga rasanya tetap strong.', 'Macchiato', 'Coffee1.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(8) NOT NULL,
+  `tanggal_transaksi` date NOT NULL,
+  `qty` int(11) NOT NULL,
+  `id_user` int(8) NOT NULL,
+  `id_menu` int(8) NOT NULL,
+  `id_detail_transaksi` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `transaksi`
+--
+
+INSERT INTO `transaksi` (`id_transaksi`, `tanggal_transaksi`, `qty`, `id_user`, `id_menu`, `id_detail_transaksi`) VALUES
+(16, '2019-11-20', 3, 2, 2, 14),
+(17, '2019-11-20', 1, 2, 3, 14),
+(18, '2019-11-20', 4, 2, 1, 14),
+(19, '2019-11-21', 1, 4, 3, 17),
+(20, '2019-11-21', 3, 4, 2, 17);
 
 -- --------------------------------------------------------
 
@@ -159,6 +215,12 @@ ALTER TABLE `daftar_toko`
   ADD KEY `user_fk` (`id_user`);
 
 --
+-- Indeks untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  ADD PRIMARY KEY (`id_detail_transaksi`);
+
+--
 -- Indeks untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
@@ -179,6 +241,15 @@ ALTER TABLE `menu`
   ADD KEY `toko_fk` (`id_toko`);
 
 --
+-- Indeks untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`),
+  ADD KEY `transaksi_fk1` (`id_menu`),
+  ADD KEY `transaksi_fk2` (`id_user`),
+  ADD KEY `transaksi_fk3` (`id_detail_transaksi`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -195,22 +266,34 @@ ALTER TABLE `daftar_toko`
   MODIFY `id_toko` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `detail_transaksi`
+--
+ALTER TABLE `detail_transaksi`
+  MODIFY `id_detail_transaksi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT untuk tabel `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_keranjang` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
   MODIFY `id_menu` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -239,6 +322,14 @@ ALTER TABLE `keranjang`
 --
 ALTER TABLE `menu`
   ADD CONSTRAINT `toko_fk` FOREIGN KEY (`id_toko`) REFERENCES `daftar_toko` (`id_toko`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_fk1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_fk2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaksi_fk3` FOREIGN KEY (`id_detail_transaksi`) REFERENCES `detail_transaksi` (`id_detail_transaksi`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

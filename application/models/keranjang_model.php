@@ -45,10 +45,9 @@ class keranjang_model extends CI_Model{
 		];
 		$this->db->insert('order', $data);
 	}
-	public function hapusAll($idUser){
-		$this->db->where('id_user',$idUser);
+	public function hapusAll($id_user){
+		$this->db->where('id_user',$id_user);
 		return $this->db->delete('keranjang');
-		//$this->db->empty_table('keranjang');
 	}
 	
 }
