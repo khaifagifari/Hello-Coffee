@@ -110,6 +110,7 @@ class shopping extends CI_Controller{
 					"qty" => $data_user['qty'],
 					"id_user" => $data_user['id_user'],
 					"id_menu" => $data_user['id_menu'],
+					"status_transaksi" => "Baru",
 				];
 				$this->transaksi_model->tambahTransaksi($data);
 			}

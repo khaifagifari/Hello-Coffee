@@ -72,14 +72,17 @@
                                 <div class="col-md-3">
                                     <p>Tanggal Pembelian</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Nama Kopi</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Jumlah</p>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <p>Harga Total</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>Status</p>
                                 </div>
                             </div>
 
@@ -88,14 +91,20 @@
                                     <div class="col-md-3">
                                         <label><?php echo $data['tanggal_transaksi']; ?></label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <label><?php echo $data['nama_menu']; ?></label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <label><?php echo $data['qty']; ?></label>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <label><?php echo $data['qty']*$data['harga']; ?></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                        <?php if($data['status_transaksi']=="Baru"){
+                                            echo "Menunggu konfirmasi..";
+                                        }else{echo $data['status_transaksi'];} ?></label>
                                     </div>
                                 </div>
                             <?php endforeach; ?>

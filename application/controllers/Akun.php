@@ -76,17 +76,21 @@ class Akun extends CI_Controller{
 	}
 	
 	public function pengaturanAkun($id_user){
-		
-		$this->load->model('Users_model');
-		$data['users'] = $this->Users_model->getUserById($id_user);
-		$data['transaksi'] = $this->transaksi_model->getTransaksiAkun($id_user);
 		if($_SESSION['id_toko']!=0){
+			$this->load->model('Users_model');
+			$data['users'] = $this->Users_model->getUserById($id_user);
+			$data['transaksi'] = $this->transaksi_model->getTransaksiAkunToko($_SESSION['id_toko']);
 			$this->load->view('templates/header_toko');
+			$this->load->view('akun/akun', $data);
+			$this->load->view('templates/footer');
 		}else{
+			$this->load->model('Users_model');
+			$data['users'] = $this->Users_model->getUserById($id_user);
+			$data['transaksi'] = $this->transaksi_model->getTransaksiAkun($id_user);
 			$this->load->view('templates/header');
+			$this->load->view('akun/akun', $data);
+			$this->load->view('templates/footer');
 		}
-		$this->load->view('akun/akun', $data);
-		$this->load->view('templates/footer');
 	}
 	public function deleteAkun($id_user){
 		$this->Users_model->deleteUser($id_user);

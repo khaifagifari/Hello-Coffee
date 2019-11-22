@@ -35,10 +35,10 @@
                <div class="menu text-uppercase">
                   <ul>
                      <li><a href="<?php if($_SESSION['id_toko']!=0){echo base_url('timeline/toko');}else{echo base_url('timeline');} ?>">Home</a></li>
-                     <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
                      <li><a href="<?php echo base_url('Akun/pengaturanAkun/').($_SESSION['id_user']) ?>">akun</a></li>
-
                      <li><a href="<?php echo base_url('Team/') ?>">Team</a><li>
+                     <li><a href="<?php echo base_url('detail_toko/transaksiToko/'.$_SESSION['id_toko']) ?>">Transaksi Toko</a><li>
+                     <li><a href="<?php echo base_url('home/logout') ?>">Logout</a></li>
 
                   </ul>
                </div>

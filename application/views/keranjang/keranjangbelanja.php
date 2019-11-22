@@ -36,27 +36,24 @@
                     <a href="<?php echo base_url('shopping/checkout/'.$_SESSION['id_user']);?>"  class ='btn btn-sm btn-primary'>Check Out</a>
                 </tr>
             </table>
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-md">
-      <!-- Modal content-->
-        <div class="modal-content">
-            <form method="post" action="<?php echo base_url('shopping/hapusAll/'.$_SESSION['id_user']);?> ">
-                <div class="modal-header">
-
-                    <h4 class="modal-title" style="color: black">Konfirmasi</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-md">
+                <!-- Modal content-->
+                    <div class="modal-content">
+                        <form method="post" action="<?php echo base_url('shopping/hapusAll/'.$_SESSION['id_user']);?> ">
+                            <div class="modal-header">
+                                <h4 class="modal-title" style="color: black">Konfirmasi</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body" style="color:black"> Anda yakin mau mengosongkan Shopping Cart?</div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Tidak</button>
+                            <button type="submit" class="btn btn-sm btn-default">Ya</button>
+                        </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="modal-body" style="color:black"> Anda yakin mau mengosongkan Shopping Cart?
-            
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Tidak</button>
-          <button type="submit" class="btn btn-sm btn-default">Ya</button>
-        </div>
-            </form>
-        </div>
-        </div>
-    </div>
+            </div>
   </div>       
   </div>
   
