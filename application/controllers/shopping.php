@@ -69,14 +69,8 @@ class shopping extends CI_Controller{
 		$this->load->view('templates/header');
 		$this->load->view('keranjang/checkout',$var);
 		$this->load->view('templates/footer');
-	}
-	public function hapusAll()
-	{	
 
-		$this->keranjang_model->hapusAll();
-		redirect('shopping/keranjang1');
 	}
-
 	public function proses_order($id_user)
 	{	
 		$this->form_validation->set_rules('fname', 'Full Name', 'required');
@@ -137,7 +131,7 @@ class shopping extends CI_Controller{
 	public function hapusAll($idUser)
 	{	
 		$this->keranjang_model->hapusAll($idUser);
-		redirect('shopping/keranjang1');
+		redirect('shopping/keranjang/'.$idUser);
 	}
 
 }
