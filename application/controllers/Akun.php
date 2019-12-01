@@ -7,6 +7,7 @@ class Akun extends CI_Controller{
 		$this->load->model('komentar_model');
 		$this->load->model('kopi_model');
 		$this->load->model('toko_model');
+		$this->load->model('transaksi_model');
 		$this->load->library('form_validation');
 	}
 
@@ -26,7 +27,7 @@ class Akun extends CI_Controller{
 			}else{
 				$this->load->view('templates/header');
 			}
-			$this->load->view('home/edit_akun');
+			$this->load->view('akun/edit_akun');
 			$this->load->view('templates/footer');
 		}else{
 			$data = [
@@ -51,12 +52,12 @@ class Akun extends CI_Controller{
 		$this->form_validation->set_rules('pwconf','Password baru re-type');
 		if($this->form_validation->run() == FALSE ){
 			$this->load->view('templates/header');
-			$this->load->view('home/edit_password');
+			$this->load->view('akun/edit_password');
 			$this->load->view('templates/footer');	
 		}else if($this->input->post('pwbaru',true) != $this->input->post('pwconf',true)){
 			#flash data
 			$this->load->view('templates/header');
-			$this->load->view('home/edit_password');
+			$this->load->view('akun/edit_password');
 			$this->load->view('templates/footer');
 		}
 		else{
@@ -75,23 +76,28 @@ class Akun extends CI_Controller{
 	}
 	
 	public function pengaturanAkun($id_user){
-		
-		$this->load->model('Users_model');
-		$data['users'] = $this->Users_model->getUserById($id_user);
 		if($_SESSION['id_toko']!=0){
+			$this->load->model('Users_model');
+			$data['users'] = $this->Users_model->getUserById($id_user);
+			$data['transaksi'] = $this->transaksi_model->getTransaksiAkunToko($_SESSION['id_toko']);
 			$this->load->view('templates/header_toko');
+			$this->load->view('akun/akun', $data);
+			$this->load->view('templates/footer');
 		}else{
+			$this->load->model('Users_model');
+			$data['users'] = $this->Users_model->getUserById($id_user);
+			$data['transaksi'] = $this->transaksi_model->getTransaksiAkun($id_user);
 			$this->load->view('templates/header');
+			$this->load->view('akun/akun', $data);
+			$this->load->view('templates/footer');
 		}
-		$this->load->view('home/akun', $data);
-		$this->load->view('templates/footer');
 	}
 	public function deleteAkun($id_user){
 		$this->Users_model->deleteUser($id_user);
 		$kalimat = 'Akun <strong>'.$_SESSION['username'].'</strong> telah dihapus';
 		$this->session->set_flashdata('login',$kalimat);
 		$data['data']['check'] = FALSE;
-		$this->load->view('home/index',$data);
+		$this->load->view('akun/index',$data);
 	}
 
 	public function editFoto($id_user){
@@ -106,7 +112,7 @@ class Akun extends CI_Controller{
         if (!$this->upload->do_upload('userfile')){
             $data = array('error' => $this->upload->display_errors(), 'user' => $temp);
             $this->load->view('templates/header');
-            $this->load->view('home/edit_foto_akun', $data);
+            $this->load->view('akun/edit_foto_akun', $data);
             $this->load->view('templates/footer');
         }
         else{
@@ -120,7 +126,7 @@ class Akun extends CI_Controller{
            			break;
            		}
            	}
-
+           	
 			$this->Users_model->editUser($id_user,$data);
 			redirect('akun/pengaturanAkun/'.$id_user);
         }

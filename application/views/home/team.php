@@ -46,8 +46,8 @@
       <li class="col-12 col-md-12 col-lg-4">
         <div class="cnt-block equal-hight" style="height: 349px;">
           <figure><img src="http://www.webcoderskull.com/img/team1.png" class="img-responsive" alt=""></figure>
-          <h3><a href="http://www.webcoderskull.com/">Web coder skull</a></h3>
-          <p>Freelance Web Developer</p>
+          <h3><a href="http://www.webcoderskull.com/">MUHAMMAD MUKHTAR DWI PUTRA</a></h3>
+          <p>CEO</p>
           <ul class="follow-us clearfix">
             <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>

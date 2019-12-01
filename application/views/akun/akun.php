@@ -69,13 +69,45 @@
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="row">
-                                <div class="col-md-6">
-                                    <label>Kagatau mau diisi apaan</label>
+                                <div class="col-md-3">
+                                    <p>Tanggal Pembelian</p>
                                 </div>
-                                <div class="col-md-6">
-                                    <p>Test</p>
+                                <div class="col-md-2">
+                                    <p>Nama Kopi</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p>Jumlah</p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p>Harga Total</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>Status</p>
                                 </div>
                             </div>
+
+                            <?php foreach($transaksi as $data): ?>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label><?php echo $data['tanggal_transaksi']; ?></label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label><?php echo $data['nama_menu']; ?></label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label><?php echo $data['qty']; ?></label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label><?php echo $data['qty']*$data['harga']; ?></label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                        <?php if($data['status_transaksi']=="Baru"){
+                                            echo "Menunggu konfirmasi..";
+                                        }else{echo $data['status_transaksi'];} ?></label>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                             
                         </div>
                         <hr>    

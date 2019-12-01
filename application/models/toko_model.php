@@ -11,5 +11,15 @@ class toko_model extends CI_model{
         return $this->db->get();
         //return as object array
 	}
+
+	public function getDaftarTransaksi($id_toko){
+		$this->db->from('transaksi');
+		$this->db->join('menu', 'transaksi.id_menu = menu.id_menu');
+		$this->db->join('detail_transaksi', 'transaksi.id_detail_transaksi = detail_transaksi.id_detail_transaksi');
+		$this->db->where('id_toko',$id_toko);
+		$this->db->where('status_transaksi',"Baru");
+		return $this->db->get()->result_array();
+	}
+
 }
 ?>

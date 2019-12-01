@@ -31,7 +31,7 @@
 											<a href="<?php echo base_url('Detail_produk/') ?>" class="image-holder__link"></a>
 
 											<div class="image-liquid image-holder--original"
-											style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto'] ?>')">
+											style="background-image: url('<?php echo base_url('assets/img/'). $kopi['foto_kopi'] ?>')">
 										<!-- </div> -->
 									</div>
 									<div class="product-description">

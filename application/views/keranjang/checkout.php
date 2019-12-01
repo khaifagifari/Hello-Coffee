@@ -15,6 +15,7 @@
   <div class="col-75">
     <div class="container2">
       <form action=<?php echo base_url("shopping/proses_order/".$_SESSION['id_user'])?> method="POST">
+      
         <div class="row">
           <div class="col-50">
             <h3>Billing Address</h3>
