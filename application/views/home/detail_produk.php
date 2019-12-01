@@ -66,7 +66,7 @@ height: 100%;">
 		Tambah Komentar
 	</div>
 	<div class="card-body">
-		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar') ?>">
+		<form class="form-signin" method="POST" action="<?php echo base_url('komentar/tambahKomentar/').$kopi['id_menu'] ?>">
 			<div class="form-label-group">
 				<input type="text" class="form-control" id="nama_komentar" name="nama_komentar">
 				<label for="nama_menu">Nama</label>
